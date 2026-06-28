@@ -1,6 +1,6 @@
 import React from 'react';
 
-function Tweet({ title, body }) {
+function Tweet({title, body, onDelete, id, onEdit }) {
   return (
     <div className="p-4 hover:bg-gray-50 transition-colors duration-150">
       <h3 className="font-bold text-lg text-gray-900">{title}</h3>
@@ -11,6 +11,22 @@ function Tweet({ title, body }) {
         <button className="cursor-default">💬</button>
         <button className="cursor-default">🔄</button>
         <button className="cursor-default">🤍</button>
+        <button
+          onClick={() => onDelete(id)}
+        >
+          🗑️
+        </button>
+        <button
+  onClick={() =>
+    onEdit({
+      id,
+      title,
+      body,
+    })
+  }
+>
+  ✏️
+</button>
       </div>
     </div>
   );

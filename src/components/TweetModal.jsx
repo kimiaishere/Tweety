@@ -1,13 +1,22 @@
 import React from 'react';
 
-function TweetModal({ open, form, setForm, onSubmit, onClose }) {
+function TweetModal({
+  open,
+  form,
+  setForm,
+  onSubmit,
+  onClose,
+  editingTweet,
+}) {
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4 backdrop-blur-sm">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full">
         <div className="flex justify-between items-center p-4 border-b border-gray-200">
-          <h2 className="text-xl font-bold text-gray-800">New Tweet</h2>
+        <h2 className="text-xl font-bold text-gray-800">
+  {editingTweet ? "Edit Tweet" : "New Tweet"}
+</h2>
           <button onClick={onClose} className="text-gray-500 text-2xl">
             ×
           </button>
@@ -59,7 +68,7 @@ function TweetModal({ open, form, setForm, onSubmit, onClose }) {
               disabled={!form.body.trim()}
               className="flex-1 bg-blue-500 text-white font-bold py-3 px-4 rounded-full"
             >
-              Post 🚀
+             {editingTweet ? "Save Changes" : "Post 🚀"}
             </button>
             <button
               type="button"
