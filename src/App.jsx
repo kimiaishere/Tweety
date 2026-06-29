@@ -4,8 +4,11 @@ import Header from './components/Header';
 import TweetList from './components/TweetList';
 import TweetModal from './components/TweetModal';
 import NotificationPanel from './components/NotificationPanel';
+import SearchBar from './components/SearchBar'; // اضافه کردن ایمپورت
+
 export default function App() {
   const [tweets, setTweets] = useState([]);
+  const [filteredTweets, setFilteredTweets] = useState([]);
   const [loading, setLoading] = useState(true);
   const [page, setPage] = useState(1);
   const limit = 10;
@@ -17,6 +20,7 @@ export default function App() {
     body: "",
   });
   const [editingTweet, setEditingTweet] = useState(null);
+  const [searchQuery, setSearchQuery] = useState('');
   const totalPages = Math.ceil(100 / limit);
 
   useEffect(() => {
@@ -28,6 +32,7 @@ export default function App() {
       .then((res) => res.json())
       .then((data) => {
         setTweets(data);
+        setFilteredTweets(data);
         setLoading(false);
       })
       .catch((err) => {
@@ -35,6 +40,18 @@ export default function App() {
         setLoading(false);
       });
   }, [page]);
+
+
+  useEffect(() => {
+    if (searchQuery.trim() === '') {
+      setFilteredTweets(tweets);
+    } else {
+      const filtered = tweets.filter(tweet =>
+        tweet.title.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      setFilteredTweets(filtered);
+    }
+  }, [searchQuery, tweets]);
 
   const resetForm = () => {
     setForm({
@@ -62,14 +79,16 @@ export default function App() {
     })
       .then((res) => res.json())
       .then((newPost) => {
-        setTweets((prev) => [
+        const updatedTweets = [
           {
             ...newPost,
             title: form.title,
             body: form.body,
           },
-          ...prev,
-        ]);
+          ...tweets,
+        ];
+        setTweets(updatedTweets);
+        setFilteredTweets(updatedTweets);
         resetForm();
       })
       .catch((err) => {
@@ -80,7 +99,7 @@ export default function App() {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
-        Loading...
+        در حال بارگذاری...
       </div>
     );
   }
@@ -90,10 +109,13 @@ export default function App() {
       method: "DELETE",
     })
       .then(() => {
-        setTweets((prev) => prev.filter((tweet) => tweet.id !== id));
+        const updatedTweets = tweets.filter((tweet) => tweet.id !== id);
+        setTweets(updatedTweets);
+        setFilteredTweets(updatedTweets);
       })
       .catch((err) => console.error(err));
   };
+
   const updateTweet = (id, updatedData) => {
     fetch(`http://localhost:3000/posts/${id}`, {
       method: "PATCH",
@@ -104,40 +126,42 @@ export default function App() {
     })
       .then((res) => res.json())
       .then((updatedPost) => {
-        setTweets((prev) =>
-          prev.map((tweet) =>
-            tweet.id === id ? updatedPost : tweet
-          )
+        const updatedTweets = tweets.map((tweet) =>
+          tweet.id === id ? updatedPost : tweet
         );
+        setTweets(updatedTweets);
+        setFilteredTweets(updatedTweets);
       });
   };
- const editTweet = (tweet) => {
-  setEditingTweet(tweet);
 
-  setForm({
-    title: tweet.title,
-    body: tweet.body,
-  });
+  const editTweet = (tweet) => {
+    setEditingTweet(tweet);
+    setForm({
+      title: tweet.title,
+      body: tweet.body,
+    });
+    setIsModalOpen(true);
+  };
 
-  setIsModalOpen(true);
-};
-const saveEdit = (e) => {
-  e.preventDefault();
+  const saveEdit = (e) => {
+    e.preventDefault();
+    updateTweet(editingTweet.id, {
+      title: form.title,
+      body: form.body,
+    });
+    resetForm();
+  };
 
-  updateTweet(editingTweet.id, {
-    title: form.title,
-    body: form.body,
-  });
-
-  resetForm();
-};
+  const handleSearchResult = (query) => {
+    setSearchQuery(query);
+  };
 
   return (
-    <div className="bg-gray-50 min-h-screen" dir="ltr">
-      <div className="max-w-6xl mx-auto bg-white shadow-lg min-h-screen relative">
+    <div className="bg-gray-50 min-h-screen" dir="rtl">
+      <div className="max-w-5xl mx-auto bg-white shadow-lg min-h-screen relative">
         <Sidebar onNewTweet={() => setIsModalOpen(true)} />
 
-        <main className="ml-64">
+        <main className="mr-64">
           <Header
             activeTab={activeTab}
             onTabChange={setActiveTab}
@@ -145,42 +169,47 @@ const saveEdit = (e) => {
               setShowNotifications(!showNotifications)
             }
           />
-         <TweetList
-  tweets={tweets}
-  onDelete={deleteTweet}
-  onEdit={editTweet}
-/>
-          <div className="flex justify-center gap-3 py-5">
+          
+          
+          <div className="flex justify-center px-4 py-3 border-b border-gray-200">
+            <SearchBar onSearchResult={handleSearchResult} />
+          </div>
 
+          <TweetList
+            tweets={filteredTweets}
+            onDelete={deleteTweet}
+            onEdit={editTweet}
+          />
+          
+          <div className="flex justify-center gap-3 py-7">
             <button className="cursor-pointer"
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
             >
-              Previous
+              قبلی
             </button>
 
             <span>
-              Page {page}
+              صفحه {page}
             </span>
 
             <button className="cursor-pointer"
               disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
             >
-              Next
+              بعدی
             </button>
-
           </div>
         </main>
 
         <TweetModal
-  open={isModalOpen}
-  form={form}
-  setForm={setForm}
-  onSubmit={editingTweet ? saveEdit : addTweet}
-  onClose={resetForm}
-  editingTweet={editingTweet}
-/>
+          open={isModalOpen}
+          form={form}
+          setForm={setForm}
+          onSubmit={editingTweet ? saveEdit : addTweet}
+          onClose={resetForm}
+          editingTweet={editingTweet}
+        />
 
         {showNotifications && (
           <NotificationPanel onClose={() => setShowNotifications(false)} />

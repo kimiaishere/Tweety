@@ -10,10 +10,16 @@ function Header({ activeTab, onTabChange, onToggleNotifications }) {
           <button
             onClick={onToggleNotifications}
             className="p-2 rounded-full"
+            aria-label="اعلان‌ها"
           >
             🔔
           </button>
-          <button className="p-2 rounded-full">👤</button>
+          <button 
+            className="p-2 rounded-full"
+            aria-label="پروفایل کاربر"
+          >
+            👤
+          </button>
         </div>
       </div>
       <div className="flex border-b border-gray-200">

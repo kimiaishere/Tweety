@@ -1,586 +1,203 @@
 {
   "posts": [
-    {
-      "userId": 1,
-      "id": 3,
-      "title": "kimia",
-      "body": "hi there!"
-    },
-    {
-      "userId": 1,
-      "id": 5,
-      "title": "nesciunt quas odio",
-      "body": "repudiandae veniam quaerat sunt sed\nalias aut fugiat sit autem sed est\nvoluptatem omnis possimus esse voluptatibus quis\nest aut tenetur dolor neque"
-    },
-    {
-      "userId": 1,
-      "id": 6,
-      "title": "dolorem eum magni eos aperiam quia",
-      "body": "ut aspernatur corporis harum nihil quis provident sequi\nmollitia nobis aliquid molestiae\nperspiciatis et ea nemo ab reprehenderit accusantium quas\nvoluptate dolores velit et doloremque molestiae"
-    },
-    {
-      "userId": 1,
-      "id": 7,
-      "title": "magnam facilis autem",
-      "body": "dolore placeat quibusdam ea quo vitae\nmagni quis enim qui quis quo nemo aut saepe\nquidem repellat excepturi ut quia\nsunt ut sequi eos ea sed quas"
-    },
-    {
-      "userId": 1,
-      "id": 8,
-      "title": "dolorem dolore est ipsam",
-      "body": "dignissimos aperiam dolorem qui eum\nfacilis quibusdam animi sint suscipit qui sint possimus cum\nquaerat magni maiores excepturi\nipsam ut commodi dolor voluptatum modi aut vitae"
-    },
-    {
-      "userId": 1,
-      "id": 9,
-      "title": "nesciunt iure omnis dolorem tempora et accusantium",
-      "body": "consectetur animi nesciunt iure dolore\nenim quia ad\nveniam autem ut quam aut nobis\net est aut quod aut provident voluptas autem voluptas"
-    },
-    {
-      "userId": 1,
-      "id": 10,
-      "title": "optio molestias id quia eum",
-      "body": "quo et expedita modi cum officia vel magni\ndoloribus qui repudiandae\nvero nisi sit\nquos veniam quod sed accusamus veritatis error"
-    },
-    {
-      "userId": 2,
-      "id": 11,
-      "title": "et ea vero quia laudantium autem",
-      "body": "delectus reiciendis molestiae occaecati non minima eveniet qui voluptatibus\naccusamus in eum beatae sit\nvel qui neque voluptates ut commodi qui incidunt\nut animi commodi"
-    },
-    {
-      "userId": 2,
-      "id": 12,
-      "title": "in quibusdam tempore odit est dolorem",
-      "body": "itaque id aut magnam\npraesentium quia et ea odit et ea voluptas et\nsapiente quia nihil amet occaecati quia id voluptatem\nincidunt ea est distinctio odio"
-    },
-    {
-      "userId": 2,
-      "id": 13,
-      "title": "dolorum ut in voluptas mollitia et saepe quo animi",
-      "body": "aut dicta possimus sint mollitia voluptas commodi quo doloremque\niste corrupti reiciendis voluptatem eius rerum\nsit cumque quod eligendi laborum minima\nperferendis recusandae assumenda consectetur porro architecto ipsum ipsam"
-    },
-    {
-      "userId": 2,
-      "id": 14,
-      "title": "voluptatem eligendi optio",
-      "body": "fuga et accusamus dolorum perferendis illo voluptas\nnon doloremque neque facere\nad qui dolorum molestiae beatae\nsed aut voluptas totam sit illum"
-    },
-    {
-      "userId": 2,
-      "id": 15,
-      "title": "eveniet quod temporibus",
-      "body": "reprehenderit quos placeat\nvelit minima officia dolores impedit repudiandae molestiae nam\nvoluptas recusandae quis delectus\nofficiis harum fugiat vitae"
-    },
-    {
-      "userId": 2,
-      "id": 16,
-      "title": "sint suscipit perspiciatis velit dolorum rerum ipsa laboriosam odio",
-      "body": "suscipit nam nisi quo aperiam aut\nasperiores eos fugit maiores voluptatibus quia\nvoluptatem quis ullam qui in alias quia est\nconsequatur magni mollitia accusamus ea nisi voluptate dicta"
-    },
-    {
-      "userId": 2,
-      "id": 17,
-      "title": "fugit voluptas sed molestias voluptatem provident",
-      "body": "eos voluptas et aut odit natus earum\naspernatur fuga molestiae ullam\ndeserunt ratione qui eos\nqui nihil ratione nemo velit ut aut id quo"
-    },
-    {
-      "userId": 2,
-      "id": 18,
-      "title": "voluptate et itaque vero tempora molestiae",
-      "body": "eveniet quo quis\nlaborum totam consequatur non dolor\nut et est repudiandae\nest voluptatem vel debitis et magnam"
-    },
-    {
-      "userId": 2,
-      "id": 19,
-      "title": "adipisci placeat illum aut reiciendis qui",
-      "body": "illum quis cupiditate provident sit magnam\nea sed aut omnis\nveniam maiores ullam consequatur atque\nadipisci quo iste expedita sit quos voluptas"
-    },
-    {
-      "userId": 2,
-      "id": 20,
-      "title": "doloribus ad provident suscipit at",
-      "body": "qui consequuntur ducimus possimus quisquam amet similique\nsuscipit porro ipsam amet\neos veritatis officiis exercitationem vel fugit aut necessitatibus totam\nomnis rerum consequatur expedita quidem cumque explicabo"
-    },
-    {
-      "userId": 3,
-      "id": 21,
-      "title": "asperiores ea ipsam voluptatibus modi minima quia sint",
-      "body": "repellat aliquid praesentium dolorem quo\nsed totam minus non itaque\nnihil labore molestiae sunt dolor eveniet hic recusandae veniam\ntempora et tenetur expedita sunt"
-    },
-    {
-      "userId": 3,
-      "id": 22,
-      "title": "dolor sint quo a velit explicabo quia nam",
-      "body": "eos qui et ipsum ipsam suscipit aut\nsed omnis non odio\nexpedita earum mollitia molestiae aut atque rem suscipit\nnam impedit esse"
-    },
-    {
-      "userId": 3,
-      "id": 23,
-      "title": "maxime id vitae nihil numquam",
-      "body": "veritatis unde neque eligendi\nquae quod architecto quo neque vitae\nest illo sit tempora doloremque fugit quod\net et vel beatae sequi ullam sed tenetur perspiciatis"
-    },
-    {
-      "userId": 3,
-      "id": 24,
-      "title": "autem hic labore sunt dolores incidunt",
-      "body": "enim et ex nulla\nomnis voluptas quia qui\nvoluptatem consequatur numquam aliquam sunt\ntotam recusandae id dignissimos aut sed asperiores deserunt"
-    },
-    {
-      "userId": 3,
-      "id": 25,
-      "title": "rem alias distinctio quo quis",
-      "body": "ullam consequatur ut\nomnis quis sit vel consequuntur\nipsa eligendi ipsum molestiae et omnis error nostrum\nmolestiae illo tempore quia et distinctio"
-    },
-    {
-      "userId": 3,
-      "id": 26,
-      "title": "est et quae odit qui non",
-      "body": "similique esse doloribus nihil accusamus\nomnis dolorem fuga consequuntur reprehenderit fugit recusandae temporibus\nperspiciatis cum ut laudantium\nomnis aut molestiae vel vero"
-    },
-    {
-      "userId": 3,
-      "id": 27,
-      "title": "quasi id et eos tenetur aut quo autem",
-      "body": "eum sed dolores ipsam sint possimus debitis occaecati\ndebitis qui qui et\nut placeat enim earum aut odit facilis\nconsequatur suscipit necessitatibus rerum sed inventore temporibus consequatur"
-    },
-    {
-      "userId": 3,
-      "id": 28,
-      "title": "delectus ullam et corporis nulla voluptas sequi",
-      "body": "non et quaerat ex quae ad maiores\nmaiores recusandae totam aut blanditiis mollitia quas illo\nut voluptatibus voluptatem\nsimilique nostrum eum"
-    },
-    {
-      "userId": 3,
-      "id": 29,
-      "title": "iusto eius quod necessitatibus culpa ea",
-      "body": "odit magnam ut saepe sed non qui\ntempora atque nihil\naccusamus illum doloribus illo dolor\neligendi repudiandae odit magni similique sed cum maiores"
-    },
-    {
-      "userId": 3,
-      "id": 30,
-      "title": "a quo magni similique perferendis",
-      "body": "alias dolor cumque\nimpedit blanditiis non eveniet odio maxime\nblanditiis amet eius quis tempora quia autem rem\na provident perspiciatis quia"
-    },
-    {
-      "userId": 4,
-      "id": 31,
-      "title": "ullam ut quidem id aut vel consequuntur",
-      "body": "debitis eius sed quibusdam non quis consectetur vitae\nimpedit ut qui consequatur sed aut in\nquidem sit nostrum et maiores adipisci atque\nquaerat voluptatem adipisci repudiandae"
-    },
-    {
-      "userId": 4,
-      "id": 32,
-      "title": "doloremque illum aliquid sunt",
-      "body": "deserunt eos nobis asperiores et hic\nest debitis repellat molestiae optio\nnihil ratione ut eos beatae quibusdam distinctio maiores\nearum voluptates et aut adipisci ea maiores voluptas maxime"
-    },
-    {
-      "userId": 4,
-      "id": 33,
-      "title": "qui explicabo molestiae dolorem",
-      "body": "rerum ut et numquam laborum odit est sit\nid qui sint in\nquasi tenetur tempore aperiam et quaerat qui in\nrerum officiis sequi cumque quod"
-    },
-    {
-      "userId": 4,
-      "id": 34,
-      "title": "magnam ut rerum iure",
-      "body": "ea velit perferendis earum ut voluptatem voluptate itaque iusto\ntotam pariatur in\nnemo voluptatem voluptatem autem magni tempora minima in\nest distinctio qui assumenda accusamus dignissimos officia nesciunt nobis"
-    },
-    {
-      "userId": 4,
-      "id": 35,
-      "title": "id nihil consequatur molestias animi provident",
-      "body": "nisi error delectus possimus ut eligendi vitae\nplaceat eos harum cupiditate facilis reprehenderit voluptatem beatae\nmodi ducimus quo illum voluptas eligendi\net nobis quia fugit"
-    },
-    {
-      "userId": 4,
-      "id": 36,
-      "title": "fuga nam accusamus voluptas reiciendis itaque",
-      "body": "ad mollitia et omnis minus architecto odit\nvoluptas doloremque maxime aut non ipsa qui alias veniam\nblanditiis culpa aut quia nihil cumque facere et occaecati\nqui aspernatur quia eaque ut aperiam inventore"
-    },
-    {
-      "userId": 4,
-      "id": 37,
-      "title": "provident vel ut sit ratione est",
-      "body": "debitis et eaque non officia sed nesciunt pariatur vel\nvoluptatem iste vero et ea\nnumquam aut expedita ipsum nulla in\nvoluptates omnis consequatur aut enim officiis in quam qui"
-    },
-    {
-      "userId": 4,
-      "id": 38,
-      "title": "explicabo et eos deleniti nostrum ab id repellendus",
-      "body": "animi esse sit aut sit nesciunt assumenda eum voluptas\nquia voluptatibus provident quia necessitatibus ea\nrerum repudiandae quia voluptatem delectus fugit aut id quia\nratione optio eos iusto veniam iure"
-    },
-    {
-      "userId": 4,
-      "id": 39,
-      "title": "eos dolorem iste accusantium est eaque quam",
-      "body": "corporis rerum ducimus vel eum accusantium\nmaxime aspernatur a porro possimus iste omnis\nest in deleniti asperiores fuga aut\nvoluptas sapiente vel dolore minus voluptatem incidunt ex"
-    },
-    {
-      "userId": 4,
-      "id": 40,
-      "title": "enim quo cumque",
-      "body": "ut voluptatum aliquid illo tenetur nemo sequi quo facilis\nipsum rem optio mollitia quas\nvoluptatem eum voluptas qui\nunde omnis voluptatem iure quasi maxime voluptas nam"
-    },
-    {
-      "userId": 5,
-      "id": 41,
-      "title": "non est facere",
-      "body": "molestias id nostrum\nexcepturi molestiae dolore omnis repellendus quaerat saepe\nconsectetur iste quaerat tenetur asperiores accusamus ex ut\nnam quidem est ducimus sunt debitis saepe"
-    },
-    {
-      "userId": 5,
-      "id": 42,
-      "title": "commodi ullam sint et excepturi error explicabo praesentium voluptas",
-      "body": "odio fugit voluptatum ducimus earum autem est incidunt voluptatem\nodit reiciendis aliquam sunt sequi nulla dolorem\nnon facere repellendus voluptates quia\nratione harum vitae ut"
-    },
-    {
-      "userId": 5,
-      "id": 43,
-      "title": "eligendi iste nostrum consequuntur adipisci praesentium sit beatae perferendis",
-      "body": "similique fugit est\nillum et dolorum harum et voluptate eaque quidem\nexercitationem quos nam commodi possimus cum odio nihil nulla\ndolorum exercitationem magnam ex et a et distinctio debitis"
-    },
-    {
-      "userId": 5,
-      "id": 44,
-      "title": "optio dolor molestias sit",
-      "body": "temporibus est consectetur dolore\net libero debitis vel velit laboriosam quia\nipsum quibusdam qui itaque fuga rem aut\nea et iure quam sed maxime ut distinctio quae"
-    },
-    {
-      "userId": 5,
-      "id": 45,
-      "title": "ut numquam possimus omnis eius suscipit laudantium iure",
-      "body": "est natus reiciendis nihil possimus aut provident\nex et dolor\nrepellat pariatur est\nnobis rerum repellendus dolorem autem"
-    },
-    {
-      "userId": 5,
-      "id": 46,
-      "title": "aut quo modi neque nostrum ducimus",
-      "body": "voluptatem quisquam iste\nvoluptatibus natus officiis facilis dolorem\nquis quas ipsam\nvel et voluptatum in aliquid"
-    },
-    {
-      "userId": 5,
-      "id": 47,
-      "title": "quibusdam cumque rem aut deserunt",
-      "body": "voluptatem assumenda ut qui ut cupiditate aut impedit veniam\noccaecati nemo illum voluptatem laudantium\nmolestiae beatae rerum ea iure soluta nostrum\neligendi et voluptate"
-    },
-    {
-      "userId": 5,
-      "id": 48,
-      "title": "ut voluptatem illum ea doloribus itaque eos",
-      "body": "voluptates quo voluptatem facilis iure occaecati\nvel assumenda rerum officia et\nillum perspiciatis ab deleniti\nlaudantium repellat ad ut et autem reprehenderit"
-    },
-    {
-      "userId": 5,
-      "id": 49,
-      "title": "laborum non sunt aut ut assumenda perspiciatis voluptas",
-      "body": "inventore ab sint\nnatus fugit id nulla sequi architecto nihil quaerat\neos tenetur in in eum veritatis non\nquibusdam officiis aspernatur cumque aut commodi aut"
-    },
-    {
-      "userId": 5,
-      "id": 50,
-      "title": "repellendus qui recusandae incidunt voluptates tenetur qui omnis exercitationem",
-      "body": "error suscipit maxime adipisci consequuntur recusandae\nvoluptas eligendi et est et voluptates\nquia distinctio ab amet quaerat molestiae et vitae\nadipisci impedit sequi nesciunt quis consectetur"
-    },
-    {
-      "userId": 6,
-      "id": 51,
-      "title": "soluta aliquam aperiam consequatur illo quis voluptas",
-      "body": "sunt dolores aut doloribus\ndolore doloribus voluptates tempora et\ndoloremque et quo\ncum asperiores sit consectetur dolorem"
-    },
-    {
-      "userId": 6,
-      "id": 52,
-      "title": "qui enim et consequuntur quia animi quis voluptate quibusdam",
-      "body": "iusto est quibusdam fuga quas quaerat molestias\na enim ut sit accusamus enim\ntemporibus iusto accusantium provident architecto\nsoluta esse reprehenderit qui laborum"
-    },
-    {
-      "userId": 6,
-      "id": 53,
-      "title": "ut quo aut ducimus alias",
-      "body": "minima harum praesentium eum rerum illo dolore\nquasi exercitationem rerum nam\nporro quis neque quo\nconsequatur minus dolor quidem veritatis sunt non explicabo similique"
-    },
-    {
-      "userId": 6,
-      "id": 54,
-      "title": "sit asperiores ipsam eveniet odio non quia",
-      "body": "totam corporis dignissimos\nvitae dolorem ut occaecati accusamus\nex velit deserunt\net exercitationem vero incidunt corrupti mollitia"
-    },
-    {
-      "userId": 6,
-      "id": 55,
-      "title": "sit vel voluptatem et non libero",
-      "body": "debitis excepturi ea perferendis harum libero optio\neos accusamus cum fuga ut sapiente repudiandae\net ut incidunt omnis molestiae\nnihil ut eum odit"
-    },
-    {
-      "userId": 6,
-      "id": 56,
-      "title": "qui et at rerum necessitatibus",
-      "body": "aut est omnis dolores\nneque rerum quod ea rerum velit pariatur beatae excepturi\net provident voluptas corrupti\ncorporis harum reprehenderit dolores eligendi"
-    },
-    {
-      "userId": 6,
-      "id": 57,
-      "title": "sed ab est est",
-      "body": "at pariatur consequuntur earum quidem\nquo est laudantium soluta voluptatem\nqui ullam et est\net cum voluptas voluptatum repellat est"
-    },
-    {
-      "userId": 6,
-      "id": 58,
-      "title": "voluptatum itaque dolores nisi et quasi",
-      "body": "veniam voluptatum quae adipisci id\net id quia eos ad et dolorem\naliquam quo nisi sunt eos impedit error\nad similique veniam"
-    },
-    {
-      "userId": 6,
-      "id": 59,
-      "title": "qui commodi dolor at maiores et quis id accusantium",
-      "body": "perspiciatis et quam ea autem temporibus non voluptatibus qui\nbeatae a earum officia nesciunt dolores suscipit voluptas et\nanimi doloribus cum rerum quas et magni\net hic ut ut commodi expedita sunt"
-    },
-    {
-      "userId": 6,
-      "id": 60,
-      "title": "consequatur placeat omnis quisquam quia reprehenderit fugit veritatis facere",
-      "body": "asperiores sunt ab assumenda cumque modi velit\nqui esse omnis\nvoluptate et fuga perferendis voluptas\nillo ratione amet aut et omnis"
-    },
-    {
-      "userId": 7,
-      "id": 61,
-      "title": "voluptatem doloribus consectetur est ut ducimus",
-      "body": "ab nemo optio odio\ndelectus tenetur corporis similique nobis repellendus rerum omnis facilis\nvero blanditiis debitis in nesciunt doloribus dicta dolores\nmagnam minus velit"
-    },
-    {
-      "userId": 7,
-      "id": 62,
-      "title": "beatae enim quia vel",
-      "body": "enim aspernatur illo distinctio quae praesentium\nbeatae alias amet delectus qui voluptate distinctio\nodit sint accusantium autem omnis\nquo molestiae omnis ea eveniet optio"
-    },
-    {
-      "userId": 7,
-      "id": 63,
-      "title": "voluptas blanditiis repellendus animi ducimus error sapiente et suscipit",
-      "body": "enim adipisci aspernatur nemo\nnumquam omnis facere dolorem dolor ex quis temporibus incidunt\nab delectus culpa quo reprehenderit blanditiis asperiores\naccusantium ut quam in voluptatibus voluptas ipsam dicta"
-    },
-    {
-      "userId": 7,
-      "id": 64,
-      "title": "et fugit quas eum in in aperiam quod",
-      "body": "id velit blanditiis\neum ea voluptatem\nmolestiae sint occaecati est eos perspiciatis\nincidunt a error provident eaque aut aut qui"
-    },
-    {
-      "userId": 7,
-      "id": 65,
-      "title": "consequatur id enim sunt et et",
-      "body": "voluptatibus ex esse\nsint explicabo est aliquid cumque adipisci fuga repellat labore\nmolestiae corrupti ex saepe at asperiores et perferendis\nnatus id esse incidunt pariatur"
-    },
-    {
-      "userId": 7,
-      "id": 66,
-      "title": "repudiandae ea animi iusto",
-      "body": "officia veritatis tenetur vero qui itaque\nsint non ratione\nsed et ut asperiores iusto eos molestiae nostrum\nveritatis quibusdam et nemo iusto saepe"
-    },
-    {
-      "userId": 7,
-      "id": 67,
-      "title": "aliquid eos sed fuga est maxime repellendus",
-      "body": "reprehenderit id nostrum\nvoluptas doloremque pariatur sint et accusantium quia quod aspernatur\net fugiat amet\nnon sapiente et consequatur necessitatibus molestiae"
-    },
-    {
-      "userId": 7,
-      "id": 68,
-      "title": "odio quis facere architecto reiciendis optio",
-      "body": "magnam molestiae perferendis quisquam\nqui cum reiciendis\nquaerat animi amet hic inventore\nea quia deleniti quidem saepe porro velit"
-    },
-    {
-      "userId": 7,
-      "id": 69,
-      "title": "fugiat quod pariatur odit minima",
-      "body": "officiis error culpa consequatur modi asperiores et\ndolorum assumenda voluptas et vel qui aut vel rerum\nvoluptatum quisquam perspiciatis quia rerum consequatur totam quas\nsequi commodi repudiandae asperiores et saepe a"
-    },
-    {
-      "userId": 7,
-      "id": 70,
-      "title": "voluptatem laborum magni",
-      "body": "sunt repellendus quae\nest asperiores aut deleniti esse accusamus repellendus quia aut\nquia dolorem unde\neum tempora esse dolore"
-    },
-    {
-      "userId": 8,
-      "id": 71,
-      "title": "et iusto veniam et illum aut fuga",
-      "body": "occaecati a doloribus\niste saepe consectetur placeat eum voluptate dolorem et\nqui quo quia voluptas\nrerum ut id enim velit est perferendis"
-    },
-    {
-      "userId": 8,
-      "id": 72,
-      "title": "sint hic doloribus consequatur eos non id",
-      "body": "quam occaecati qui deleniti consectetur\nconsequatur aut facere quas exercitationem aliquam hic voluptas\nneque id sunt ut aut accusamus\nsunt consectetur expedita inventore velit"
-    },
-    {
-      "userId": 8,
-      "id": 73,
-      "title": "consequuntur deleniti eos quia temporibus ab aliquid at",
-      "body": "voluptatem cumque tenetur consequatur expedita ipsum nemo quia explicabo\naut eum minima consequatur\ntempore cumque quae est et\net in consequuntur voluptatem voluptates aut"
-    },
-    {
-      "userId": 8,
-      "id": 74,
-      "title": "enim unde ratione doloribus quas enim ut sit sapiente",
-      "body": "odit qui et et necessitatibus sint veniam\nmollitia amet doloremque molestiae commodi similique magnam et quam\nblanditiis est itaque\nquo et tenetur ratione occaecati molestiae tempora"
-    },
-    {
-      "userId": 8,
-      "id": 75,
-      "title": "dignissimos eum dolor ut enim et delectus in",
-      "body": "commodi non non omnis et voluptas sit\nautem aut nobis magnam et sapiente voluptatem\net laborum repellat qui delectus facilis temporibus\nrerum amet et nemo voluptate expedita adipisci error dolorem"
-    },
-    {
-      "userId": 8,
-      "id": 76,
-      "title": "doloremque officiis ad et non perferendis",
-      "body": "ut animi facere\ntotam iusto tempore\nmolestiae eum aut et dolorem aperiam\nquaerat recusandae totam odio"
-    },
-    {
-      "userId": 8,
-      "id": 77,
-      "title": "necessitatibus quasi exercitationem odio",
-      "body": "modi ut in nulla repudiandae dolorum nostrum eos\naut consequatur omnis\nut incidunt est omnis iste et quam\nvoluptates sapiente aliquam asperiores nobis amet corrupti repudiandae provident"
-    },
-    {
-      "userId": 8,
-      "id": 78,
-      "title": "quam voluptatibus rerum veritatis",
-      "body": "nobis facilis odit tempore cupiditate quia\nassumenda doloribus rerum qui ea\nillum et qui totam\naut veniam repellendus"
-    },
-    {
-      "userId": 8,
-      "id": 79,
-      "title": "pariatur consequatur quia magnam autem omnis non amet",
-      "body": "libero accusantium et et facere incidunt sit dolorem\nnon excepturi qui quia sed laudantium\nquisquam molestiae ducimus est\nofficiis esse molestiae iste et quos"
-    },
-    {
-      "userId": 8,
-      "id": 80,
-      "title": "labore in ex et explicabo corporis aut quas",
-      "body": "ex quod dolorem ea eum iure qui provident amet\nquia qui facere excepturi et repudiandae\nasperiores molestias provident\nminus incidunt vero fugit rerum sint sunt excepturi provident"
-    },
-    {
-      "userId": 9,
-      "id": 81,
-      "title": "tempora rem veritatis voluptas quo dolores vero",
-      "body": "facere qui nesciunt est voluptatum voluptatem nisi\nsequi eligendi necessitatibus ea at rerum itaque\nharum non ratione velit laboriosam quis consequuntur\nex officiis minima doloremque voluptas ut aut"
-    },
-    {
-      "userId": 9,
-      "id": 82,
-      "title": "laudantium voluptate suscipit sunt enim enim",
-      "body": "ut libero sit aut totam inventore sunt\nporro sint qui sunt molestiae\nconsequatur cupiditate qui iste ducimus adipisci\ndolor enim assumenda soluta laboriosam amet iste delectus hic"
-    },
-    {
-      "userId": 9,
-      "id": 83,
-      "title": "odit et voluptates doloribus alias odio et",
-      "body": "est molestiae facilis quis tempora numquam nihil qui\nvoluptate sapiente consequatur est qui\nnecessitatibus autem aut ipsa aperiam modi dolore numquam\nreprehenderit eius rem quibusdam"
-    },
-    {
-      "userId": 9,
-      "id": 84,
-      "title": "optio ipsam molestias necessitatibus occaecati facilis veritatis dolores aut",
-      "body": "sint molestiae magni a et quos\neaque et quasi\nut rerum debitis similique veniam\nrecusandae dignissimos dolor incidunt consequatur odio"
-    },
-    {
-      "userId": 9,
-      "id": 85,
-      "title": "dolore veritatis porro provident adipisci blanditiis et sunt",
-      "body": "similique sed nisi voluptas iusto omnis\nmollitia et quo\nassumenda suscipit officia magnam sint sed tempora\nenim provident pariatur praesentium atque animi amet ratione"
-    },
-    {
-      "userId": 9,
-      "id": 86,
-      "title": "placeat quia et porro iste",
-      "body": "quasi excepturi consequatur iste autem temporibus sed molestiae beatae\net quaerat et esse ut\nvoluptatem occaecati et vel explicabo autem\nasperiores pariatur deserunt optio"
-    },
-    {
-      "userId": 9,
-      "id": 87,
-      "title": "nostrum quis quasi placeat",
-      "body": "eos et molestiae\nnesciunt ut a\ndolores perspiciatis repellendus repellat aliquid\nmagnam sint rem ipsum est"
-    },
-    {
-      "userId": 9,
-      "id": 88,
-      "title": "sapiente omnis fugit eos",
-      "body": "consequatur omnis est praesentium\nducimus non iste\nneque hic deserunt\nvoluptatibus veniam cum et rerum sed"
-    },
-    {
-      "userId": 9,
-      "id": 89,
-      "title": "sint soluta et vel magnam aut ut sed qui",
-      "body": "repellat aut aperiam totam temporibus autem et\narchitecto magnam ut\nconsequatur qui cupiditate rerum quia soluta dignissimos nihil iure\ntempore quas est"
-    },
-    {
-      "userId": 9,
-      "id": 90,
-      "title": "ad iusto omnis odit dolor voluptatibus",
-      "body": "minus omnis soluta quia\nqui sed adipisci voluptates illum ipsam voluptatem\neligendi officia ut in\neos soluta similique molestias praesentium blanditiis"
-    },
-    {
-      "userId": 10,
-      "id": 91,
-      "title": "aut amet sed",
-      "body": "libero voluptate eveniet aperiam sed\nsunt placeat suscipit molestias\nsimilique fugit nam natus\nexpedita consequatur consequatur dolores quia eos et placeat"
-    },
-    {
-      "userId": 10,
-      "id": 92,
-      "title": "ratione ex tenetur perferendis",
-      "body": "aut et excepturi dicta laudantium sint rerum nihil\nlaudantium et at\na neque minima officia et similique libero et\ncommodi voluptate qui"
-    },
-    {
-      "userId": 10,
-      "id": 93,
-      "title": "beatae soluta recusandae",
-      "body": "dolorem quibusdam ducimus consequuntur dicta aut quo laboriosam\nvoluptatem quis enim recusandae ut sed sunt\nnostrum est odit totam\nsit error sed sunt eveniet provident qui nulla"
-    },
-    {
-      "userId": 10,
-      "id": 94,
-      "title": "qui qui voluptates illo iste minima",
-      "body": "aspernatur expedita soluta quo ab ut similique\nexpedita dolores amet\nsed temporibus distinctio magnam saepe deleniti\nomnis facilis nam ipsum natus sint similique omnis"
-    },
-    {
-      "userId": 10,
-      "id": 95,
-      "title": "id minus libero illum nam ad officiis",
-      "body": "earum voluptatem facere provident blanditiis velit laboriosam\npariatur accusamus odio saepe\ncumque dolor qui a dicta ab doloribus consequatur omnis\ncorporis cupiditate eaque assumenda ad nesciunt"
-    },
-    {
-      "userId": 10,
-      "id": 96,
-      "title": "quaerat velit veniam amet cupiditate aut numquam ut sequi",
-      "body": "in non odio excepturi sint eum\nlabore voluptates vitae quia qui et\ninventore itaque rerum\nveniam non exercitationem delectus aut"
-    },
-    {
-      "userId": 10,
-      "id": 97,
-      "title": "quas fugiat ut perspiciatis vero provident",
-      "body": "eum non blanditiis soluta porro quibusdam voluptas\nvel voluptatem qui placeat dolores qui velit aut\nvel inventore aut cumque culpa explicabo aliquid at\nperspiciatis est et voluptatem dignissimos dolor itaque sit nam"
-    },
-    {
-      "userId": 10,
-      "id": 98,
-      "title": "laboriosam dolor voluptates",
-      "body": "doloremque ex facilis sit sint culpa\nsoluta assumenda eligendi non ut eius\nsequi ducimus vel quasi\nveritatis est dolores"
-    },
-    {
-      "userId": 10,
-      "id": 99,
-      "title": "temporibus sit alias delectus eligendi possimus magni",
-      "body": "quo deleniti praesentium dicta non quod\naut est molestias\nmolestias et officia quis nihil\nitaque dolorem quia"
-    },
-    {
-      "userId": 10,
-      "id": 100,
-      "title": "at nam consequatur ea labore ea harum",
-      "body": "cupiditate quo est a modi nesciunt soluta\nipsa voluptas error itaque dicta in\nautem qui minus magnam et distinctio eum\naccusamus ratione error aut"
-    }
+    {"id": 1, "userId": 1, "title": "ساختار پایه HTML", "body": "هر صفحه HTML از تگ‌های html، head و body تشکیل شده. head شامل meta، title و لینک‌های CSS است. body محتوای اصلی صفحه را شامل می‌شود. این ساختار پایه برای همه صفحات وب ضروری است."},
+  
+    {"id": 2, "userId": 1, "title": "تگ‌های پرکاربرد HTML", "body": "تگ‌های اصلی: div (بلوک‌ساز)، span (خطی)، h1-h6 (عناوین)، p (پاراگراف)، a (لینک)، img (تصویر)، ul/ol (لیست‌ها)، form (فرم)، input (ورودی) و button (دکمه). هر تگ ویژگی‌های خاص خود را دارد."},
+  
+    {"id": 3, "userId": 1, "title": "ویژگی display در CSS", "body": "display مشخص می‌کند المان چگونه نمایش داده شود. مقادیر اصلی: block (کل عرض)، inline (همراه متن)، inline-block (ترکیب)، flex (چیدمان انعطاف‌پذیر)، grid (شبکه‌ای) و none (مخفی). در Tailwind: block، inline، flex، grid و hidden."},
+  
+    {"id": 4, "userId": 1, "title": "Box Model در CSS", "body": "Box Model شامل Content (محتوا)، Padding (فاصله داخلی)، Border (حاشیه) و Margin (فاصله خارجی) است. با box-sizing: border-box، padding و border در عرض و ارتفاع محاسبه می‌شوند. در Tailwind از p-*, m-*, border استفاده می‌شود."},
+  
+    {"id": 5, "userId": 1, "title": "واحدهای اندازه‌گیری در CSS", "body": "واحدهای اصلی: px (پیکسل - ثابت)، rem (نسبت به فونت ریشه)، em (نسبت به فونت والد)، % (درصد)، vh/vw (نسبت به viewport). برای responsive از rem و % بیشتر استفاده می‌شود. در Tailwind از مقادیر عددی مانند p-4 استفاده می‌شود."},
+  
+    {"id": 6, "userId": 1, "title": "position در CSS", "body": "مقادیر position: static (پیش‌فرض)، relative (نسبت به خود)، absolute (نسبت به والد relative)، fixed (نسبت به viewport) و sticky (ترکیب). در Tailwind: static، relative، absolute، fixed و sticky. برای طراحی لایه‌ها و مودال‌ها ضروری است."},
+  
+    {"id": 7, "userId": 1, "title": "Flexbox در CSS", "body": "Flexbox یک مدل چیدمان یک‌بعدی است. ویژگی‌ها: flex-direction (جهت)، justify-content (تراز افقی)، align-items (تراز عمودی)، flex-wrap (شکستن خط) و gap (فاصله). در Tailwind با کلاس‌های flex، justify-center، items-center و gap-* استفاده می‌شود."},
+  
+    {"id": 8, "userId": 1, "title": "Grid در CSS", "body": "Grid یک سیستم چیدمان دو‌بعدی (سطر و ستون) است. ویژگی‌ها: grid-template-columns (ستون‌ها)، grid-template-rows (سطرها) و gap (فاصله). در Tailwind: grid، grid-cols-3، gap-4 و col-span-2. برای چیدمان کارت‌ها و صفحات پیچیده عالی است."},
+  
+    {"id": 9, "userId": 1, "title": "Responsive Design با Media Query", "body": "Media Query برای طراحی واکنش‌گرا: @media (max-width: 768px) { ... }. در Tailwind با پیشوندهای sm: (640px)، md: (768px)، lg: (1024px) و xl: (1280px) استفاده می‌شود. رویکرد Mobile-first یعنی ابتدا طراحی موبایل و سپس بزرگتر."},
+  
+    {"id": 10, "userId": 1, "title": "کلاس‌های شرطی در Tailwind", "body": "برای اعمال کلاس‌های شرطی از clsx یا classnames استفاده می‌شود: clsx('base', isActive && 'bg-blue-500'). یا template literals: className={`base ${isActive ? 'bg-blue-500' : 'bg-gray-300'}`}. برای استایل‌دهی پویا ضروری است."},
+  
+    {"id": 11, "userId": 2, "title": "متغیرها در جاوااسکریپت", "body": "var (تابع‌حوزه)، let (بلوک‌حوزه) و const (بلوک‌حوزه و ثابت). در React از const و let استفاده می‌شود. const برای متغیرهای ثابت و let برای متغیرهای قابل تغییر. از var استفاده نکنید."},
+  
+    {"id": 12, "userId": 2, "title": "انواع داده در جاوااسکریپت", "body": "انواع داده: string، number، boolean، null، undefined، object، array و function. typeof برای تشخیص نوع استفاده می‌شود. در React props و state می‌توانند هر نوع داده‌ای باشند. درک درست انواع داده برای جلوگیری از خطاها ضروری است."},
+  
+    {"id": 13, "userId": 2, "title": "Arrow Function در ES6", "body": "سینتکس کوتاه‌تر: const add = (a,b) => a + b. this را از scope بالایی به ارث می‌برد (lexical this). در React برای کامپوننت‌ها و event handlers استفاده می‌شود. بدنه تک‌خطی return implicit دارد."},
+  
+    {"id": 14, "userId": 2, "title": "Destructuring در جاوااسکریپت", "body": "استخراج مقادیر از اشیاء و آرایه‌ها: const {name, age} = person و const [first, second] = array. در React برای props: ({title, onClick}) => {...} و در useState: const [count, setCount] = useState(0). کد را تمیزتر می‌کند."},
+  
+    {"id": 15, "userId": 2, "title": "Spread Operator در جاوااسکریپت", "body": "کپی و ترکیب آرایه‌ها و اشیاء: [...arr, newItem] و {...obj, key: value}. در React برای به‌روزرسانی immutable state ضروری است. از تغییر مستقیم state جلوگیری می‌کند. مثال: setItems([...items, newItem])"},
+  
+    {"id": 16, "userId": 2, "title": "متد map در جاوااسکریپت", "body": "تبدیل هر عنصر آرایه و ایجاد آرایه جدید. در React برای رندر لیست‌ها: data.map(item => <Item key={item.id} {...item} />). همیشه از key یکتا استفاده کنید. immutable است."},
+  
+    {"id": 17, "userId": 2, "title": "متد filter در جاوااسکریپت", "body": "فیلتر کردن آرایه بر اساس شرط: users.filter(user => user.age >= 18). در React برای جستجو و فیلتر لیست‌ها استفاده می‌شود. immutable است و آرایه اصلی را تغییر نمی‌دهد."},
+  
+    {"id": 18, "userId": 2, "title": "متد find در جاوااسکریپت", "body": "یافتن اولین عنصری که شرط را قبول کند: users.find(u => u.id === 1). اگر پیدا نشود undefined برمی‌گرداند. در React برای یافتن یک آیتم خاص در لیست کاربرد دارد."},
+  
+    {"id": 19, "userId": 2, "title": "Optional Chaining در جاوااسکریپت", "body": "دسترسی ایمن به خواص شیء: user?.address?.city. از خطای 'Cannot read property of undefined' جلوگیری می‌کند. در React برای props و state که ممکن است undefined باشند مفید است."},
+  
+    {"id": 20, "userId": 2, "title": "Nullish Coalescing در جاوااسکریپت", "body": "مقدار پیش‌فرض فقط برای null یا undefined: user?.name ?? 'Guest'. تفاوت با || که false values (0, '', false) را هم می‌گیرد. در React برای مقدار پیش‌فرض props استفاده می‌شود."},
+  
+    {"id": 21, "userId": 3, "title": "Promise در جاوااسکریپت", "body": "مدیریت عملیات ناهمگام: new Promise((resolve, reject) => {...}). سه حالت: pending، fulfilled و rejected. متدهای then (موفقیت)، catch (خطا) و finally (همیشه). در React برای فراخوانی API ضروری است."},
+  
+    {"id": 22, "userId": 3, "title": "Async/Await در جاوااسکریپت", "body": "روش مدرن کار با Promiseها. مثال: async function getData() { const res = await fetch(url); const data = await res.json(); return data; }. در React با useEffect ترکیب می‌شود. خطاها با try/catch مدیریت می‌شوند."},
+  
+    {"id": 23, "userId": 3, "title": "Fetch API در جاوااسکریپت", "body": "درخواست‌های HTTP: GET: fetch(url). POST: { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(data) }. پاسخ: res.json() یا res.text(). در React برای ارتباط با API استفاده می‌شود."},
+  
+    {"id": 24, "userId": 3, "title": "JSON در جاوااسکریپت", "body": "فرمت تبادل داده: { \"key\": \"value\" }. متدها: JSON.stringify (تبدیل شیء به رشته) و JSON.parse (تبدیل رشته به شیء). در React برای ذخیره در localStorage و ارسال به سرور کاربرد دارد."},
+  
+    {"id": 25, "userId": 3, "title": "localStorage در مرورگر", "body": "ذخیره دائمی: setItem(key, value)، getItem(key). فقط رشته ذخیره می‌کند. برای اشیاء از JSON.stringify استفاده کنید. در React برای ذخیره token و تنظیمات کاربر کاربرد دارد."},
+  
+    {"id": 26, "userId": 3, "title": "sessionStorage در مرورگر", "body": "ذخیره موقت که با بسته شدن تب پاک می‌شود. متدها مشابه localStorage. در React برای داده‌های موقت مانند فرم‌های چندمرحله‌ای استفاده می‌شود."},
+  
+    {"id": 27, "userId": 3, "title": "ES6 Modules", "body": "تقسیم کد به فایل‌های جداگانه: export const name = ... و import { name } from './file.js'. در React هر کامپوننت یک ماژول است. import dynamic برای lazy loading کاربرد دارد."},
+  
+    {"id": 28, "userId": 3, "title": "Closure در جاوااسکریپت", "body": "دسترسی تابع داخلی به متغیرهای تابع خارجی حتی پس از پایان آن. در React برای custom hooks و useState ضروری است. مثال: function outer() { let x=0; return () => x++; }"},
+  
+    {"id": 29, "userId": 3, "title": "Event Loop در جاوااسکریپت", "body": "مکانیزم مدیریت عملیات ناهمگام در JS تک‌رشته‌ای. درک آن برای setTimeout، useEffect و عملکرد React ضروری است. Call Stack و Callback Queue اجزای اصلی هستند."},
+  
+    {"id": 30, "userId": 3, "title": "React چیست", "body": "کتابخانه‌ای برای ساخت UI با رویکرد کامپوننت‌محور. ویژگی‌ها: Virtual DOM، JSX، یک‌طرفه بودن داده‌ها و قابلیت استفاده مجدد. توسط فیسبوک توسعه یافته و محبوب‌ترین کتابخانه فرانت‌اند است."},
+  
+    {"id": 31, "userId": 4, "title": "JSX در React", "body": "ترکیب HTML و JS: const element = <h1>Hello {name}</h1>. در JSX از expressions داخل {} استفاده می‌شود. در نهایت به React.createElement تبدیل می‌شود. JSX خوانایی کد را افزایش می‌دهد."},
+  
+    {"id": 32, "userId": 4, "title": "کامپوننت در React", "body": "قطعه‌های قابل استفاده مجدد UI. دو نوع: کامپوننت تابعی (با hooks) و کامپوننت کلاسی (قدیمی). کامپوننت‌های تابعی امروزه استاندارد هستند. props ورودی و JSX خروجی دارند."},
+  
+    {"id": 33, "userId": 4, "title": "Props در React", "body": "داده‌های ورودی به کامپوننت. فقط خواندنی هستند (immutable). مثال: <User name={name} age={age} />. در کامپوننت: ({name, age}) => {...}. برای ارسال داده از والد به فرزند استفاده می‌شود."},
+  
+    {"id": 34, "userId": 4, "title": "useState Hook", "body": "مدیریت state در کامپوننت‌های تابعی. آرایه [state, setState] برمی‌گرداند. مثال: const [count, setCount] = useState(0). با setState مقدار جدید را تنظیم و کامپوننت را رندر مجدد می‌کند. پایه‌ای‌ترین Hook است."},
+  
+    {"id": 35, "userId": 4, "title": "useEffect Hook", "body": "مدیریت side-effects: فراخوانی API، اشتراک‌گذاری و دستکاری DOM. با آرایه وابستگی‌ها کنترل می‌شود: [] یک بار، [deps] با تغییر وابستگی‌ها. برای پاک‌سازی از return استفاده کنید. جایگزین lifecycle methods است."},
+  
+    {"id": 36, "userId": 4, "title": "useRef Hook", "body": "مرجع قابل تغییر که بدون رندر مجدد مقدار را حفظ می‌کند. دسترسی مستقیم به DOM: const inputRef = useRef(null); <input ref={inputRef} />. همچنین برای ذخیره تایمر و مقدار قبلی state کاربرد دارد."},
+  
+    {"id": 37, "userId": 4, "title": "رندر شرطی در React", "body": "با && یا ternary: {isLoggedIn && <Dashboard />} یا {isLoggedIn ? <Logout /> : <Login />}. برای شرط‌های پیچیده‌تر از تابع کمکی استفاده کنید. JSX شرط‌های if را پشتیبانی نمی‌کند."},
+  
+    {"id": 38, "userId": 4, "title": "رندر لیست در React", "body": "با متد map و key یکتا: items.map(item => <Item key={item.id} {...item} />). key برای بهینه‌سازی رندر ضروری است. از index به عنوان key استفاده نکنید مگر لیست ثابت باشد."},
+  
+    {"id": 39, "userId": 4, "title": "Event Handling در React", "body": "رویدادها با camelCase: onClick، onChange، onSubmit. مثال: <button onClick={handleClick}>. برای ارسال پارامتر: onClick={() => handleClick(id)}. از arrow functions استفاده کنید."},
+  
+    {"id": 40, "userId": 4, "title": "فرم‌های کنترل‌شده در React", "body": "state مقدار input را کنترل می‌کند و onChange آن را به‌روز می‌کند. مثال: <input value={name} onChange={e => setName(e.target.value)} />. دسترسی کامل به مقدار و اعتبارسنجی همزمان."},
+  
+    {"id": 41, "userId": 5, "title": "فرم‌های کنترل‌نشده در React", "body": "با useRef به مقدار input دسترسی داریم و رندر مجدد ندارد. مثال: const inputRef = useRef(); <input ref={inputRef} />. برای فرم‌های بزرگ و عملکرد بالا مناسب است. با React Hook Form ترکیب می‌شود."},
+  
+    {"id": 42, "userId": 5, "title": "React Hook Form", "body": "کتابخانه مدیریت فرم با عملکرد بالا: register (ثبت input)، handleSubmit (ارسال)، watch (نظارت) و formState.errors (خطاها). با Zod یا yup برای اعتبارسنجی ترکیب می‌شود. رندر مجدد بهینه‌تری دارد."},
+  
+    {"id": 43, "userId": 5, "title": "useReducer Hook", "body": "مدیریت state پیچیده با reducer: const [state, dispatch] = useReducer(reducer, initialState). reducer تابعی است که state و action را گرفته و state جدید برمی‌گرداند. برای فرم‌های چندگانه و stateهای پیچیده عالی است."},
+  
+    {"id": 44, "userId": 5, "title": "useCallback Hook", "body": "memoize کردن تابع بین رندرها: const handleClick = useCallback(() => {...}, [deps]). از رندر مجدد کامپوننت‌های فرزند که به تابع وابسته هستند جلوگیری می‌کند."},
+  
+    {"id": 45, "userId": 5, "title": "useMemo Hook", "body": "memoize کردن مقدار محاسبه‌شده: const expensiveValue = useMemo(() => compute(data), [data]). از محاسبه مجدد در هر رندر جلوگیری می‌کند. برای محاسبات سنگین کاربرد دارد."},
+  
+    {"id": 46, "userId": 5, "title": "React.memo", "body": "جلوگیری از رندر مجدد کامپوننت در صورت عدم تغییر props. مثال: export default React.memo(MyComponent). برای کامپوننت‌هایی که props ثابت دارند مفید است. از استفاده زیاد پرهیز کنید."},
+  
+    {"id": 47, "userId": 5, "title": "Context API در React", "body": "اشتراک‌گذاری داده بدون prop drilling: const ThemeContext = createContext(); <ThemeContext.Provider value={theme}> و const theme = useContext(ThemeContext). برای تم و احراز هویت کاربردی است."},
+  
+    {"id": 48, "userId": 5, "title": "Custom Hooks", "body": "استخراج منطق تکراری به Hook سفارشی با نام use... مثال: useFetch، useLocalStorage. می‌توانند از Hooks دیگر استفاده کنند. کد را تمیزتر و قابل استفاده مجدد می‌کنند."},
+  
+    {"id": 49, "userId": 5, "title": "React Router", "body": "مسیریابی در React: BrowserRouter، Routes، Route، Link و useNavigate. useParams برای پارامترهای URL و useLocation برای مسیر فعلی. برای SPAها ضروری است."},
+  
+    {"id": 50, "userId": 5, "title": "مدیریت isLoading در React", "body": "state boolean برای نمایش اسپینر هنگام درخواست API: const [loading, setLoading] = useState(false). قبل از fetch true و بعد false. در حین بارگذاری <Spinner /> نمایش دهید."},
+  
+    {"id": 51, "userId": 6, "title": "مدیریت خطا در React", "body": "با try/catch در async/await و catch در fetch. خطاها را در state ذخیره و نمایش دهید: const [error, setError] = useState(null). برای خطاهای رندرینگ از Error Boundaries استفاده کنید."},
+  
+    {"id": 52, "userId": 6, "title": "Tailwind CSS چیست", "body": "فریم‌ورک utility-first CSS با کلاس‌های آماده: bg-blue-500، text-white، p-4، rounded. نیازی به نوشتن CSS سفارشی نیست. با React به‌خوبی ترکیب می‌شود و سرعت توسعه را بالا می‌برد."},
+  
+    {"id": 53, "userId": 6, "title": "Flexbox در Tailwind", "body": "کلاس‌های flex (فعال‌سازی)، justify-center (تراز افقی)، items-center (تراز عمودی)، flex-col (ستونی) و gap-4 (فاصله). برای responsive: sm:flex، md:flex."},
+  
+    {"id": 54, "userId": 6, "title": "Grid در Tailwind", "body": "کلاس‌های grid، grid-cols-3 (۳ ستون)، gap-4، col-span-2 (اشغال ۲ ستون) و row-span-2. برای چیدمان شبکه‌ای و صفحات پیچیده عالی است."},
+  
+    {"id": 55, "userId": 6, "title": "Responsive در Tailwind", "body": "پیشوندها: sm: (640px)، md: (768px)، lg: (1024px)، xl: (1280px) و 2xl: (1536px). مثال: text-sm md:text-base lg:text-lg. Mobile-first طراحی می‌شود."},
+  
+    {"id": 56, "userId": 6, "title": "Hover و Focus در Tailwind", "body": "hover:bg-blue-500، focus:ring-2، active:scale-95. با transition ترکیب می‌شود: transition-all duration-300. group-hover برای تأثیر روی فرزندان."},
+  
+    {"id": 57, "userId": 6, "title": "Transition در Tailwind", "body": "transition-all (همه ویژگی‌ها)، transition-colors (فقط رنگ)، duration-300، ease-in-out و delay-100. برای انیمیشن‌های نرم و روان با hover ترکیب می‌شوند."},
+  
+    {"id": 58, "userId": 6, "title": "@apply در Tailwind", "body": "ترکیب کلاس‌های Tailwind در CSS: .btn { @apply bg-blue-500 text-white px-4 py-2 rounded; }. برای کامپوننت‌های تکراری مفید است."},
+  
+    {"id": 59, "userId": 6, "title": "calc در Tailwind", "body": "با براکت []: h-[calc(100vh-4rem)]. برای اندازه‌های محاسبه‌شده مثل ارتفاع viewport منهای هدر. همچنین min(), max() و clamp() قابل استفاده هستند."},
+  
+    {"id": 60, "userId": 6, "title": "استفاده از icon در React", "body": "کتابخانه react-icons: import { FaUser, MdHome } from 'react-icons/fa'. با className اندازه و رنگ کنترل می‌شود: FaUser با className text-blue-500 text-2xl."},
+  
+    {"id": 61, "userId": 7, "title": "Zod برای اعتبارسنجی", "body": "کتابخانه schema declaration: z.object({ name: z.string().min(3), email: z.string().email() }). با React Hook Form و resolver ترکیب می‌شود. type inference خودکار دارد."},
+  
+    {"id": 62, "userId": 7, "title": "Lazy Loading در React", "body": "بارگذاری دیرهنگام: const LazyComponent = React.lazy(() => import('./Component')). با Suspense fallback نمایش می‌دهد. حجم bundle اولیه را کاهش می‌دهد."},
+  
+    {"id": 63, "userId": 7, "title": "Portal در React", "body": "رندر خارج از هیرارشی DOM: ReactDOM.createPortal(children, domNode). برای مودال‌ها، tooltip‌ها و popoverها که باید بالای همه باشند عالی است."},
+  
+    {"id": 64, "userId": 7, "title": "Error Boundaries", "body": "گرفتن خطاهای رندرینگ و نمایش fallback UI. با getDerivedStateFromError و componentDidCatch. فقط خطاهای رندرینگ را می‌گیرند. از کرش برنامه جلوگیری می‌کند."},
+  
+    {"id": 65, "userId": 7, "title": "useLayoutEffect", "body": "مشابه useEffect اما قبل از Paint اجرا می‌شود. برای اندازه‌گیری DOM و محاسبه موقعیت. از استفاده زیاد پرهیز کنید چون عملکرد را کاهش می‌دهد."},
+  
+    {"id": 66, "userId": 7, "title": "React با TypeScript", "body": "نوع‌دهی قوی: interface Props { name: string; age?: number }. const MyComponent: React.FC<Props> = ({name, age}) => {...}. خطاها را در توسعه شناسایی می‌کند."},
+  
+    {"id": 67, "userId": 7, "title": "useState با TypeScript", "body": "نوع‌دهی useState: const [user, setUser] = useState<User | null>(null). TypeScript نوع را از مقدار اولیه推断 می‌کند. برای اشیاء پیچیده interface تعریف کنید."},
+  
+    {"id": 68, "userId": 7, "title": "useRef با TypeScript", "body": "نوع‌دهی useRef: const inputRef = useRef<HTMLInputElement>(null). <input ref={inputRef} />. برای دسترسی: inputRef.current?.focus(). نوع‌های DOM: HTMLInputElement."},
+  
+    {"id": 69, "userId": 7, "title": "Next.js چیست", "body": "فریم‌ورک React برای SSR و SSG. مسیریابی مبتنی بر پوشه، API routes، Image Optimization و SEO عالی. با Tailwind به‌خوبی ترکیب می‌شود."},
+  
+    {"id": 70, "userId": 7, "title": "SSR و SSG در Next.js", "body": "SSR: رندر در سرور با getServerSideProps. SSG: رندر در build time با getStaticProps. ISR: به‌روزرسانی دوره‌ای صفحات استاتیک. برای SEO و سرعت ضروری است."},
+  
+    {"id": 71, "userId": 8, "title": "مسیریابی در Next.js", "body": "مسیریابی مبتنی بر پوشه: pages/index.js => '/'، pages/about.js => '/about'. صفحات با [] برای dynamic routes: pages/posts/[id].js => '/posts/1'."},
+  
+    {"id": 72, "userId": 8, "title": "getStaticProps در Next.js", "body": "دریافت داده در build time: export async function getStaticProps() { const data = await fetchData(); return { props: { data } } }. صفحات استاتیک و سریع."},
+  
+    {"id": 73, "userId": 8, "title": "getServerSideProps در Next.js", "body": "دریافت داده در هر درخواست: export async function getServerSideProps() { const data = await fetchData(); return { props: { data } } }. برای داده‌های پویا."},
+  
+    {"id": 74, "userId": 8, "title": "Image در Next.js", "body": "کامپوننت Image برای بهینه‌سازی: Image با src، alt، width و height. lazy loading، تبدیل به WebP و resize خودکار."},
+  
+    {"id": 75, "userId": 8, "title": "React Query", "body": "کتابخانه مدیریت data fetching: const { data, isLoading } = useQuery(['users'], fetchUsers). کش، refetch و stale-while-revalidate. جایگزین useEffect + useState."},
+  
+    {"id": 76, "userId": 8, "title": "useQuery در React Query", "body": "دریافت داده: const { data, error, isLoading, refetch } = useQuery(['key'], fetchFn, { enabled, staleTime }). key یکتا برای caching."},
+  
+    {"id": 77, "userId": 8, "title": "useMutation در React Query", "body": "ارسال داده: const mutation = useMutation(createUser, { onSuccess: () => queryClient.invalidateQueries(['users']) }). برای POST، PUT، DELETE."},
+  
+    {"id": 78, "userId": 8, "title": "Redux Toolkit", "body": "روش مدرن Redux: createSlice برای تعریف reducer و actions، configureStore برای store. مثال: const counterSlice = createSlice({ name: 'counter', initialState: 0, reducers: { increment: state => state+1 } })."},
+  
+    {"id": 79, "userId": 8, "title": "Zustand", "body": "کتابخانه سبک مدیریت state: const useStore = create((set) => ({ count: 0, increment: () => set(state => ({ count: state.count+1 })) })). بدون Provider."},
+  
+    {"id": 80, "userId": 8, "title": "Testing در React", "body": "ابزارهای تست: Jest (runner)، React Testing Library (رندر و تعامل)، Vitest و Cypress (E2E). برای کیفیت کد ضروری است."},
+  
+    {"id": 81, "userId": 9, "title": "React Testing Library", "body": "تست تعامل کاربر: render(<MyComponent />)، screen.getByText('Hello')، fireEvent.click(button). بر اساس رفتار کاربر، نه implementation."},
+  
+    {"id": 82, "userId": 9, "title": "دستور reduce در جاوااسکریپت", "body": "آرایه را به یک مقدار واحد کاهش می‌دهد: arr.reduce((acc, curr) => acc + curr, 0). برای جمع، گروه‌بندی و تبدیل آرایه به شیء کاربرد دارد."},
+  
+    {"id": 83, "userId": 9, "title": "دستور some در جاوااسکریپت", "body": "بررسی می‌کند آیا حداقل یک عنصر شرط را قبول می‌کند: users.some(user => user.age >= 18). خروجی boolean است. برای بررسی وجود حداقل یک مورد خاص."},
+  
+    {"id": 84, "userId": 9, "title": "دستور every در جاوااسکریپت", "body": "بررسی می‌کند آیا همه عناصر شرط را قبول می‌کنند: users.every(user => user.age >= 18). خروجی boolean است. برای بررسی همه موارد."},
+  
+    {"id": 85, "userId": 9, "title": "دستور includes در جاوااسکریپت", "body": "بررسی می‌کند آرایه یا رشته شامل مقدار خاصی است: [1,2,3].includes(2) // true. در جستجو و بررسی وجود مقدار کاربرد دارد."},
+  
+    {"id": 86, "userId": 9, "title": "Object.keys در جاوااسکریپت", "body": "آرایه‌ای از کلیدهای شیء برمی‌گرداند: Object.keys({a:1, b:2}) // ['a', 'b']. برای حلقه‌زنی روی اشیاء کاربرد دارد."},
+  
+    {"id": 87, "userId": 9, "title": "Object.values در جاوااسکریپت", "body": "آرایه‌ای از مقادیر شیء برمی‌گرداند: Object.values({a:1, b:2}) // [1, 2]. برای جمع‌آوری مقادیر و محاسبات."},
+  
+    {"id": 88, "userId": 9, "title": "Object.entries در جاوااسکریپت", "body": "آرایه‌ای از [key, value] برای هر جفت: Object.entries({a:1, b:2}) // [['a',1], ['b',2]]. برای تبدیل شیء به آرایه."},
+  
+    {"id": 89, "userId": 9, "title": "کلید (key) در React", "body": "شناسه یکتا برای هر عنصر در لیست: key={item.id}. به React کمک می‌کند تغییرات را تشخیص دهد و بهینه‌سازی کند. از index استفاده نکنید."},
+  
+    {"id": 90, "userId": 9, "title": "React DevTools", "body": "ابزار مرورگر برای دیباگ React: مشاهده درخت کامپوننت‌ها، state، props و hooks. برای توسعه و بهینه‌سازی ضروری است."},
+  
+    {"id": 91, "userId": 10, "title": "display:none vs visibility:hidden", "body": "display:none المان را کاملاً حذف می‌کند. visibility:hidden فقط مخفی می‌کند اما فضا باقی می‌ماند. در Tailwind: hidden و invisible."},
+  
+    {"id": 92, "userId": 10, "title": "PropTypes در React", "body": "اعتبارسنجی نوع props: PropTypes.string، PropTypes.number، PropTypes.array. isRequired برای props اجباری. در TypeScript جایگزین می‌شود."},
+  
+    {"id": 93, "userId": 10, "title": "استایل در JSX", "body": "استایل به‌صورت object با camelCase: style={{backgroundColor: 'red', fontSize: '16px'}}. برای استایل‌های پویا که به state وابسته هستند."},
+  
+    {"id": 94, "userId": 10, "title": "زمان‌بندی در جاوااسکریپت", "body": "setTimeout (پس از تأخیر) و setInterval (تکراری). clearTimeout و clearInterval برای لغو. در React با useEffect پاک‌سازی می‌شوند."},
+  
+    {"id": 95, "userId": 10, "title": "مدیریت state در React", "body": "روش‌های مدیریت state: useState (محلی)، Context API (اشتراکی)، useReducer (پیچیده)، React Query (سرور)، Redux (گلوبال) و Zustand (ساده)."},
+  
+    {"id": 96, "userId": 10, "title": "شرطی‌سازی در JSX", "body": "با && یا ternary: {isLoggedIn && <Dashboard />} یا {isLoggedIn ? <Logout /> : <Login />}. برای شرط‌های پیچیده از تابع کمکی استفاده کنید."},
+  
+    {"id": 97, "userId": 10, "title": "فراخوانی API در React", "body": "با useEffect و fetch: useEffect(() => { const fetchData = async () => { const res = await fetch(url); setData(await res.json()); }; fetchData(); }, [])."},
+  
+    {"id": 98, "userId": 10, "title": "دستور sort در جاوااسکریپت", "body": "مرتب‌سازی آرایه: (a,b) => a - b برای صعودی و (a,b) => b - a برای نزولی. sort آرایه اصلی را تغییر می‌دهد پس قبلش کپی کنید."},
+  
+    {"id": 99, "userId": 10, "title": "دستور slice در جاوااسکریپت", "body": "بخشی از آرایه را برمی‌گرداند: arr.slice(1, 4). بدون تغییر آرایه اصلی. برای immutable updates در React کاربرد دارد."},
+  
+    {"id": 100, "userId": 10, "title": "استفاده از key در React", "body": "شناسه یکتا برای لیست‌ها: key={item.id}. به React در تشخیص تغییرات کمک می‌کند. از index به عنوان key استفاده نکنید."}
   ]
-}
+  }
