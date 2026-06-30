@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Sidebar from './components/Sidebar';
-import Header from './components/Header';
-import TweetList from './components/TweetList';
-import TweetModal from './components/TweetModal';
-import NotificationPanel from './components/NotificationPanel';
-import SearchBar from './components/SearchBar'; // اضافه کردن ایمپورت
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
+import TweetList from '../components/TweetList';
+import TweetModal from '../components/TweetModal';
+import NotificationPanel from '../components/NotificationPanel';
+import SearchBar from '../components/SearchBar'; // اضافه کردن ایمپورت
 
 export default function Home() {
   const [tweets, setTweets] = useState([]);
