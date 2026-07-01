@@ -1,6 +1,9 @@
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { loginSchema } from "../validation/loginSchema";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { useEffect } from "react";
 
 export default function Login() {
   const {
@@ -10,9 +13,43 @@ export default function Login() {
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
+  const navigate = useNavigate();
+  useEffect(() => {
+    try {
+      const storedUser = localStorage.getItem("user");
+  
+      if (storedUser) {
+        const user = JSON.parse(storedUser);
+        navigate("/", { replace: true });
+      }
+    } catch {
+      localStorage.removeItem("user");
+    }
+  }, [navigate]);
 
-  const onSubmit = (data) => {
-    console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const res = await fetch(
+        `http://localhost:3000/users?email=${data.email}&password=${data.password}`
+      );
+  
+      const users = await res.json();
+      console.log("Users:", users);
+  
+      if (users.length === 0) {
+        toast.error("ایمیل یا رمز عبور اشتباه است.");
+        return;
+      }
+  
+      localStorage.setItem("user", JSON.stringify(users[0]));
+  
+      toast.success("ورود موفقیت‌آمیز بود.");
+  
+      navigate("/");
+    } catch (error) {
+      toast.error("خطا در برقراری ارتباط با سرور.");
+      console.error(error);
+    }
   };
 
   return (

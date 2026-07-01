@@ -199,5 +199,21 @@
     {"id": 99, "userId": 10, "title": "دستور slice در جاوااسکریپت", "body": "بخشی از آرایه را برمی‌گرداند: arr.slice(1, 4). بدون تغییر آرایه اصلی. برای immutable updates در React کاربرد دارد."},
   
     {"id": 100, "userId": 10, "title": "استفاده از key در React", "body": "شناسه یکتا برای لیست‌ها: key={item.id}. به React در تشخیص تغییرات کمک می‌کند. از index به عنوان key استفاده نکنید."}
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Kimia",
+      "email": "user@test.com",
+      "password": "654321"
+    }
+  ],
+  "admin": [
+    {
+      "id": 1,
+      "name": "Kimia",
+      "email": "admin@test.com",
+      "password": "123456"
+    }
   ]
   }
