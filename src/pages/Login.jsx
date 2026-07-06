@@ -4,8 +4,17 @@ import { loginSchema } from "../validation/loginSchema";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { login } from "../features/auth/authSlice";
 
 export default function Login() {
+
+  const dispatch = useDispatch();
+const user = useSelector((state) => state.auth.user);
+
+console.log(user);
+
   const {
     register,
     handleSubmit,
@@ -42,6 +51,7 @@ export default function Login() {
       }
   
       localStorage.setItem("user", JSON.stringify(users[0]));
+      dispatch(login(users[0]));
   
       toast.success("ورود موفقیت‌آمیز بود.");
   

@@ -7,19 +7,22 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import AuthLoader from "./components/AuthLoader";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
   <Provider store={store}>
   <BrowserRouter>
+  <AuthLoader>
     <App />
+  </AuthLoader>
 
-    <ToastContainer
-      position="top-center"
-      autoClose={2500}
-      rtl
-    />
-  </BrowserRouter>
+  <ToastContainer
+    position="top-center"
+    autoClose={2500}
+    rtl
+  />
+</BrowserRouter>
 </Provider>
 </StrictMode>
 );

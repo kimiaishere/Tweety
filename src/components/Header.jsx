@@ -2,17 +2,37 @@ import React, { useState } from "react";
 import { TABS } from "../constants";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "../features/auth/authSlice";
 
-function Header({ activeTab, onTabChange, onToggleNotifications }) {
+function Header({
+  activeTab,
+  onTabChange,
+  onToggleNotifications,
+}) {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [showMenu, setShowMenu] = useState(false);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = useSelector((state) => state.auth.user);
 
-  const logout = () => {
+  const posts = useSelector((state) => state.posts.posts);
+
+  if (!user) return null;
+
+  // تعداد پست‌های همین کاربر
+  const userPostsCount = posts.filter(
+    (post) => post.userId === user.id
+  ).length;
+
+  const handleLogout = () => {
     localStorage.removeItem("user");
+
+    dispatch(logout());
+
     toast.success("با موفقیت خارج شدید.");
+
     navigate("/login");
   };
 
@@ -25,7 +45,6 @@ function Header({ activeTab, onTabChange, onToggleNotifications }) {
           <button
             onClick={onToggleNotifications}
             className="p-2 rounded-full"
-            aria-label="اعلان‌ها"
           >
             🔔
           </button>
@@ -39,16 +58,30 @@ function Header({ activeTab, onTabChange, onToggleNotifications }) {
             </button>
 
             {showMenu && (
-              <div className="absolute flex flex-col text-sm left-[-10px] mt-3 w-30 h-40 bg-white rounded-xl shadow-lg border-gray-200 border text-center py-5">
-                <span className=" flex-1 font-medium" dir="ltr">
-                Hi {user.name}!
-              </span>
+              <div className="absolute left-[-20px] mt-3 w-40 z-50 bg-white rounded-xl shadow-lg border p-4 flex flex-col gap-2">
+
+                <h3
+                  dir="ltr"
+                  className="font-bold text-center"
+                >
+                  Hi {user.name}
+                </h3>
+
+                <p className="text-center text-gray-500">
+                  Role : {user.role}
+                </p>
+
+                <p className="text-center text-gray-500">
+                  Posts : {userPostsCount}
+                </p>
+
                 <button
-                  onClick={logout}
-                  className="w-full hover:text-red-400 cursor-pointer"
+                  onClick={handleLogout}
+                  className="mt-2 text-red-500 hover:text-red-700"
                 >
                   خروج از حساب
                 </button>
+
               </div>
             )}
           </div>
@@ -61,7 +94,9 @@ function Header({ activeTab, onTabChange, onToggleNotifications }) {
             key={tab.value}
             onClick={() => onTabChange(tab.value)}
             className={`flex-1 py-3 text-center font-medium relative ${
-              activeTab === tab.value ? "text-blue-600" : "text-gray-500"
+              activeTab === tab.value
+                ? "text-blue-600"
+                : "text-gray-500"
             }`}
           >
             {tab.label}

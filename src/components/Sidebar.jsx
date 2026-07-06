@@ -3,7 +3,7 @@ import { SIDEBAR_ITEMS } from '../constants';
 
 function Sidebar({ onNewTweet }) {
   return (
-    <aside className="absolute inset-y-0 right-0 w-64 bg-white border-l border-gray-200">
+    <aside className="absolute inset-y-0 w-64 bg-white border-l border-gray-200">
       <div className="p-4 border-b border-gray-200">
         <h1 className="text-2xl font-bold text-blue-500">🕊️ توییتر</h1>
       </div>

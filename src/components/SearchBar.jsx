@@ -58,14 +58,14 @@ export default function SearchBar({ onSearchResult }) {
 
   return (
     <div className="relative" ref={ref}>
-      <div className="relative">
+      <div className="relative flex justify-center">
         <input
           type="text"
           placeholder="جستجو در عنوان پست‌ها..."
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           onFocus={() => debouncedTerm.length >= 3 && setShow(true)}
-          className="w-full md:w-[500px] px-4 py-2 pr-10 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+          className="w-[500px] px-4 py-2 pr-10 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
         />
         
         <svg className="absolute right-3 top-2.5 w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

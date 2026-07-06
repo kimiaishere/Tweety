@@ -1,19 +1,28 @@
 import React from "react";
 import Tweet from "./Tweet";
 
-function TweetList({ tweets, onDelete, onEdit }) {
+function TweetList({
+  tweets,
+  onDelete,
+  onEdit,
+}) {
   return (
-    <div className="divide-y divide-gray-200 mr-6">
+    <div className="divide-y divide-gray-200 ml-6">
+
       {tweets.map((tweet) => (
+
         <Tweet
           key={tweet.id}
           id={tweet.id}
           title={tweet.title}
           body={tweet.body}
+          userId={tweet.userId}
           onDelete={onDelete}
           onEdit={onEdit}
         />
+
       ))}
+
     </div>
   );
 }

@@ -1,50 +1,110 @@
-import React from 'react';
+import React from "react";
+import { useSelector } from "react-redux";
 
-function Tweet({ title, body, onDelete, id, onEdit }) {
+function Tweet({
+  id,
+  title,
+  body,
+  userId,
+  onDelete,
+  onEdit,
+}) {
+
+  const currentUser = useSelector(
+    (state) => state.auth.user
+  );
+
+  const users = useSelector(
+    (state) => state.users.users
+  );
+
+  const author = users.find(
+    (user) => user.id === userId
+  );
+
+  const canManage =
+    currentUser &&
+    (
+      currentUser.role === "admin" ||
+      currentUser.id === userId
+    );
+
   return (
     <div className="p-4 hover:bg-gray-50 transition-colors duration-150">
-      <h3 className="font-bold text-lg text-gray-900">{title}</h3>
-      <p className="mt-6 text-[15px] leading-6 text-gray-800 text-right">
+
+      <div className="flex justify-between items-start">
+
+        <div>
+
+          <h3 className="font-bold text-lg">
+            {title}
+          </h3>
+
+          <div className="flex gap-2 mt-1 items-center">
+
+            <span className="text-sm font-semibold">
+              {author?.name}
+            </span>
+
+            <span
+              className={`text-xs px-2 py-1 rounded-full ${
+                author?.role === "admin"
+                  ? "bg-red-100 text-red-600"
+                  : "bg-blue-100 text-blue-600"
+              }`}
+            >
+              {author?.role}
+            </span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <p className="mt-6 text-[15px] leading-7">
         {body}
       </p>
-      <div className="flex justify-between mt-10 max-w-sm text-gray-500">
-        <button 
-          className="cursor-default"
-          aria-label="نظر"
-        >
+
+      <div className="flex justify-between mt-10 max-w-sm">
+
+        <button>
           💬
         </button>
-        <button 
-          className="cursor-default"
-          aria-label="بازتوییت"
-        >
+
+        <button>
           🔄
         </button>
-        <button 
-          className="cursor-default"
-          aria-label="پسندیدن"
-        >
+
+        <button>
           🤍
         </button>
-        <button
-          onClick={() => onDelete(id)}
-          aria-label="حذف توییت"
-        >
-          🗑️
-        </button>
-        <button
-          onClick={() =>
-            onEdit({
-              id,
-              title,
-              body,
-            })
-          }
-          aria-label="ویرایش توییت"
-        >
-          ✏️
-        </button>
+
+        {canManage && (
+          <>
+            <button
+              onClick={() => onDelete(id)}
+            >
+              🗑️
+            </button>
+
+            <button
+              onClick={() =>
+                onEdit({
+                  id,
+                  title,
+                  body,
+                  userId,
+                })
+              }
+            >
+              ✏️
+            </button>
+          </>
+        )}
+
       </div>
+
     </div>
   );
 }
