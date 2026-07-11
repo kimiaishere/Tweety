@@ -38,7 +38,7 @@ function Header({
 
   return (
     <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
-      <div className="px-4 py-3 flex justify-between items-center">
+      <div className="px-4 py-2 flex justify-between items-center">
         <div />
 
         <div className="flex items-center gap-2">
@@ -58,7 +58,7 @@ function Header({
             </button>
 
             {showMenu && (
-              <div className="absolute left-[-20px] mt-3 w-40 z-50 bg-white rounded-xl shadow-lg border p-4 flex flex-col gap-2">
+              <div className="absolute left-[-15px] mt-3 w-40 z-50 bg-white rounded-xl shadow-lg border border-gray-300 p-4 flex flex-col gap-2">
 
                 <h3
                   dir="ltr"
@@ -93,7 +93,7 @@ function Header({
           <button
             key={tab.value}
             onClick={() => onTabChange(tab.value)}
-            className={`flex-1 py-3 text-center font-medium relative ${
+            className={`flex-1 py-3 mt-[-10px] text-center font-medium relative ${
               activeTab === tab.value
                 ? "text-blue-600"
                 : "text-gray-500"

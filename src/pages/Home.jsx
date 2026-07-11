@@ -112,38 +112,46 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
-      <div className="max-w-5xl mx-auto bg-white min-h-screen border border-gray-300 shadow-xl rounded-xl overflow-hidden">
-
+    <div className="h-screen bg-gray-50" dir="rtl">
+      <div className="max-w-5xl mx-auto h-full bg-white border border-gray-300 shadow-xl rounded-2xl overflow-hidden flex">
+        
+        {/* سایدبار - با flex در کنار محتوا */}
         <Sidebar onNewTweet={() => setIsModalOpen(true)} />
 
-        <div className="mr-64">
+        {/* بخش اصلی - فضای باقیمانده را پر می‌کند */}
+        <div className="flex-1 flex flex-col min-w-0">
           <Header />
 
-          <SearchBar onSearchResult={setSearch} />
+          <div>
+            <SearchBar onSearchResult={setSearch} />
+          </div>
 
-          <TweetList
-            tweets={currentPosts}
-            onDelete={deleteTweet}
-            onEdit={setEditing}
-          />
+          <div className="flex-1 overflow-y-auto">
+            <TweetList
+              tweets={currentPosts}
+              onDelete={deleteTweet}
+              onEdit={setEditing}
+            />
+          </div>
 
           {/* pagination */}
-          <div className="flex justify-center gap-4 py-6">
+          <div className="flex border-t mb-4 pt-4 border-gray-200 justify-center gap-4 shrink-0">
             <button
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
+              className="px-3 py-1 bg-blue-500 text-white rounded-lg disabled:opacity-50"
             >
               قبلی
             </button>
 
-            <span>
+            <span className="flex items-center">
               {page} / {totalPages}
             </span>
 
             <button
               disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
+              className="px-3 py-1 bg-blue-500 text-white rounded-lg disabled:opacity-50"
             >
               بعدی
             </button>
@@ -156,7 +164,6 @@ export default function Home() {
             onClose={() => setIsModalOpen(false)}
           />
         )}
-
       </div>
     </div>
   );

@@ -7,7 +7,7 @@ function TweetList({
   onEdit,
 }) {
   return (
-    <div className="divide-y divide-gray-200 ml-6">
+    <div className="divide-y divide-gray-200">
 
       {tweets.map((tweet) => (
 

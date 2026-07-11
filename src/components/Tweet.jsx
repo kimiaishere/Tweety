@@ -42,10 +42,6 @@ function Tweet({
 
           <div className="flex gap-2 mt-1 items-center">
 
-            <span className="text-sm font-semibold">
-              {author?.name}
-            </span>
-
             <span
               className={`text-xs px-2 py-1 rounded-full ${
                 author?.role === "admin"
