@@ -53,9 +53,8 @@ export default function SearchBar({ onSearchResult }) {
   };
 
   return (
-    <div className="py-2" ref={ref}>
-      <div className="w-[500px]">
-        {/* بخش جستجو */}
+    <div ref={ref} className="flex-1 max-w-lg">
+      <div>
         <div className="flex items-center relative">
           <input
             type="text"
@@ -63,7 +62,7 @@ export default function SearchBar({ onSearchResult }) {
             value={term}
             onChange={(e) => setTerm(e.target.value)}
             onFocus={() => debouncedTerm.length >= 3 && setShow(true)}
-            className="w-full px-4 py-2 pr-10 rounded-full border border-gray-300 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all"
+            className="w-full px-4 py-2.5 pr-10 bg-gray-50 rounded-full border border-gray-200 focus:outline-none focus:bg-white focus:border-sky-400 focus:ring-2 focus:ring-sky-100 transition-all text-sm placeholder:text-gray-400"
           />
           
           {/* آیکون جستجو */}
@@ -98,16 +97,16 @@ export default function SearchBar({ onSearchResult }) {
 
         {/* لیست پیشنهادات - بدون absolute */}
         {show && (
-          <div className="mt-1 bg-white rounded-xl shadow-lg border border-gray-200 overflow-hidden">
+          <div className="mt-2 bg-white rounded-2xl shadow-lg shadow-gray-200/50 border border-gray-100 overflow-hidden">
             {suggestions.length === 0 ? (
-              <div className="px-4 py-3 text-gray-500 text-sm">نتیجه‌ای یافت نشد</div>
+              <div className="px-4 py-3 text-gray-400 text-sm">نتیجه‌ای یافت نشد</div>
             ) : (
               <ul className="max-h-80 overflow-y-auto">
                 {suggestions.map((title, i) => (
                   <li
                     key={i}
                     onClick={() => handleSelect(title)}
-                    className="px-4 py-3 hover:bg-blue-50 cursor-pointer transition-colors border-b border-gray-100 last:border-0 flex items-center gap-3"
+                    className="px-4 py-3 hover:bg-sky-50 cursor-pointer transition-colors border-b border-gray-50 last:border-0 flex items-center gap-3"
                   >
                     <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
