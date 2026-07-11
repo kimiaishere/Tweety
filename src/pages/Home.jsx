@@ -1,12 +1,15 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { toast } from "react-toastify";
 
 import Sidebar from "../components/Sidebar";
 import Header from "../components/Header";
 import TweetList from "../components/TweetList";
 import TweetModal from "../components/TweetModal";
 import NotificationPanel from "../components/NotificationPanel";
-import SearchBar from "../components/SearchBar";
+import LoadingSkeleton from "../components/LoadingSkeleton";
+import EmptyState from "../components/EmptyState";
+import ExplorePanel from "../components/ExplorePanel";
 
 import {
   setPosts,
@@ -15,7 +18,6 @@ import {
   updatePost,
   setLoading,
 } from "../features/posts/postsSlice";
-
 import { setUsers } from "../features/users/usersSlice";
 
 export default function Home() {
@@ -27,12 +29,21 @@ export default function Home() {
 
   const [page, setPage] = useState(1);
   const [search, setSearch] = useState("");
+  const [activeTab, setActiveTab] = useState("for-you");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editing, setEditing] = useState(null);
+  const [form, setForm] = useState({ title: "", body: "" });
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [bookmarks, setBookmarks] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem("bookmarks") || "[]");
+    } catch {
+      return [];
+    }
+  });
 
-  const limit = 10;
+  const limit = 8;
 
-  // ---------------- FETCH ----------------
   useEffect(() => {
     dispatch(setLoading(true));
 
@@ -46,119 +57,247 @@ export default function Home() {
     });
   }, [dispatch]);
 
-  // ---------------- FILTER ----------------
-  const filtered = useMemo(() => {
-    return posts.filter((p) =>
-      p.title.toLowerCase().includes(search.toLowerCase())
-    );
-  }, [posts, search]);
+  useEffect(() => {
+    setPage(1);
+  }, [search, activeTab]);
 
-  // ---------------- PAGINATION ----------------
-  const totalPages = Math.ceil(filtered.length / limit);
+  const filtered = useMemo(() => {
+    let result = posts;
+
+    if (activeTab === "my-posts") {
+      result = result.filter((p) => p.userId === user?.id);
+    }
+
+    if (search) {
+      result = result.filter((p) =>
+        p.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    return [...result].reverse();
+  }, [posts, search, activeTab, user?.id]);
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / limit));
 
   const currentPosts = useMemo(() => {
     const start = (page - 1) * limit;
     return filtered.slice(start, start + limit);
   }, [filtered, page]);
 
-  // ---------------- ADD ----------------
-  const addTweet = (e) => {
+  const openNewTweetModal = useCallback(() => {
+    setEditing(null);
+    setForm({ title: "", body: "" });
+    setIsModalOpen(true);
+  }, []);
+
+  const openEditModal = useCallback((tweet) => {
+    setEditing(tweet);
+    setForm({ title: tweet.title, body: tweet.body });
+    setIsModalOpen(true);
+  }, []);
+
+  const closeModal = useCallback(() => {
+    setIsModalOpen(false);
+    setEditing(null);
+    setForm({ title: "", body: "" });
+  }, []);
+
+  const handleSubmit = (e) => {
     e.preventDefault();
+    if (!form.body.trim()) return;
 
-    fetch("http://localhost:3000/posts", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        title: editing?.title || "",
-        body: editing?.body || "",
-        userId: user.id,
-      }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        dispatch(addPost(data));
-        setIsModalOpen(false);
-      });
+    if (editing) {
+      fetch(`http://localhost:3000/posts/${editing.id}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ title: form.title, body: form.body }),
+      })
+        .then((r) => r.json())
+        .then((updated) => {
+          dispatch(updatePost(updated));
+          toast.success("توییت با موفقیت ویرایش شد.");
+          closeModal();
+        });
+    } else {
+      fetch("http://localhost:3000/posts", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          title: form.title,
+          body: form.body,
+          userId: user.id,
+        }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          dispatch(addPost(data));
+          toast.success("توییت شما منتشر شد! 🎉");
+          closeModal();
+        });
+    }
   };
 
-  // ---------------- DELETE ----------------
   const deleteTweet = (id) => {
-    fetch(`http://localhost:3000/posts/${id}`, {
-      method: "DELETE",
-    }).then(() => {
-      dispatch(deletePost(id));
-    });
+    fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" }).then(
+      () => {
+        dispatch(deletePost(id));
+        toast.info("توییت حذف شد.");
+      }
+    );
   };
 
-  // ---------------- UPDATE ----------------
-  const updateTweet = (id, data) => {
-    fetch(`http://localhost:3000/posts/${id}`, {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(data),
-    })
-      .then((r) => r.json())
-      .then((updated) => {
-        dispatch(updatePost(updated));
-      });
+  const toggleBookmark = (id) => {
+    setBookmarks((prev) => {
+      const next = prev.includes(id)
+        ? prev.filter((b) => b !== id)
+        : [...prev, id];
+      localStorage.setItem("bookmarks", JSON.stringify(next));
+      return next;
+    });
   };
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-sky-50 via-white to-indigo-50 gap-4">
-        <div className="w-10 h-10 border-2 border-sky-500 border-t-transparent rounded-full animate-spin" />
-        <p className="text-gray-500 text-sm font-medium">در حال بارگذاری...</p>
+      <div className="h-full flex flex-col bg-white" dir="rtl">
+        <div className="h-16 border-b border-gray-100 bg-gray-50/50 shrink-0" />
+        <div className="flex-1 overflow-hidden">
+          <LoadingSkeleton />
+        </div>
       </div>
     );
   }
 
   return (
-    <div className="h-screen bg-gradient-to-br from-sky-50 via-slate-50 to-indigo-100 p-3 md:p-5" dir="rtl">
-      <div className="max-w-5xl mx-auto h-full bg-white/80 backdrop-blur-xl border border-white/60 shadow-[0_8px_40px_rgba(14,165,233,0.12)] rounded-3xl overflow-hidden flex">
+    <div className="h-full flex overflow-hidden bg-white" dir="rtl">
+      <Sidebar
+        user={user}
+        onNewTweet={openNewTweetModal}
+        bookmarksCount={bookmarks.length}
+      />
 
-        <Sidebar onNewTweet={() => setIsModalOpen(true)} />
+      <main className="flex-1 flex flex-col min-w-0">
+        <Header
+          onSearchResult={setSearch}
+          activeTab={activeTab}
+          onTabChange={setActiveTab}
+          onToggleNotifications={() => setShowNotifications((v) => !v)}
+          showNotifications={showNotifications}
+        />
 
-        <div className="flex-1 flex flex-col min-w-0">
-          <Header onSearchResult={setSearch} />
+        {showNotifications && (
+          <NotificationPanel
+            onClose={() => setShowNotifications(false)}
+            postsCount={posts.filter((p) => p.userId === user?.id).length}
+          />
+        )}
 
-          <div className="flex-1 overflow-y-auto">
+        <div className="flex-1 overflow-y-auto">
+          {currentPosts.length === 0 ? (
+            <EmptyState
+              icon={search ? "🔍" : "✍️"}
+              title={search ? "نتیجه‌ای یافت نشد" : "هنوز توییتی نیست"}
+              description={
+                search
+                  ? "عبارت جستجو را تغییر دهید یا فیلتر را بردارید."
+                  : activeTab === "my-posts"
+                    ? "اولین توییت خود را بنویسید!"
+                    : "هنوز پستی منتشر نشده. شما اولین نفر باشید!"
+              }
+              action={
+                !search && (
+                  <button
+                    onClick={openNewTweetModal}
+                    className="bg-brand-500 hover:bg-brand-600 text-white font-semibold px-6 py-2.5 rounded-full transition-colors"
+                  >
+                    نوشتن توییت
+                  </button>
+                )
+              }
+            />
+          ) : (
             <TweetList
               tweets={currentPosts}
               onDelete={deleteTweet}
-              onEdit={setEditing}
+              onEdit={openEditModal}
+              bookmarks={bookmarks}
+              onToggleBookmark={toggleBookmark}
             />
-          </div>
+          )}
+        </div>
 
-          <div className="flex border-t border-gray-100 px-6 py-4 justify-center items-center gap-3 shrink-0 bg-white/50">
+        {filtered.length > limit && (
+          <div className="flex items-center justify-between border-t border-gray-100 px-5 py-3 shrink-0 bg-white">
             <button
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
-              className="px-5 py-2 bg-sky-500 text-white text-sm font-medium rounded-full hover:bg-sky-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
-              قبلی
+              ← قبلی
             </button>
 
-            <span className="flex items-center text-sm text-gray-500 font-medium min-w-[4rem] justify-center">
-              {page} / {totalPages || 1}
-            </span>
+            <div className="flex items-center gap-1.5">
+              {Array.from({ length: totalPages }, (_, i) => i + 1)
+                .filter(
+                  (p) =>
+                    p === 1 || p === totalPages || Math.abs(p - page) <= 1
+                )
+                .map((p, idx, arr) => (
+                  <React.Fragment key={p}>
+                    {idx > 0 && arr[idx - 1] !== p - 1 && (
+                      <span className="text-gray-400 px-1">…</span>
+                    )}
+                    <button
+                      onClick={() => setPage(p)}
+                      className={`w-8 h-8 text-sm rounded-full transition-colors ${
+                        page === p
+                          ? "bg-brand-500 text-white font-bold"
+                          : "hover:bg-gray-100 text-gray-600"
+                      }`}
+                    >
+                      {p}
+                    </button>
+                  </React.Fragment>
+                ))}
+            </div>
 
             <button
-              disabled={page === totalPages || totalPages === 0}
+              disabled={page === totalPages}
               onClick={() => setPage(page + 1)}
-              className="px-5 py-2 bg-sky-500 text-white text-sm font-medium rounded-full hover:bg-sky-600 disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm hover:shadow-md"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
-              بعدی
+              بعدی →
             </button>
           </div>
-        </div>
-
-        {isModalOpen && (
-          <TweetModal
-            onSubmit={addTweet}
-            onClose={() => setIsModalOpen(false)}
-          />
         )}
-      </div>
+      </main>
+
+      <ExplorePanel
+        bookmarksCount={bookmarks.length}
+        onTrendClick={(term) => setSearch(term)}
+        onCategoryClick={(cat) => setSearch(cat)}
+      />
+
+      {isModalOpen && (
+        <TweetModal
+          open={isModalOpen}
+          form={form}
+          setForm={setForm}
+          onSubmit={handleSubmit}
+          onClose={closeModal}
+          editingTweet={editing}
+        />
+      )}
+
+      {/* Mobile FAB */}
+      <button
+        onClick={openNewTweetModal}
+        className="sm:hidden fixed bottom-6 left-6 w-14 h-14 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-xl shadow-blue-300/50 flex items-center justify-center z-30 active:scale-95 transition-all"
+        title="توییت جدید"
+      >
+        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
+        </svg>
+      </button>
     </div>
   );
 }

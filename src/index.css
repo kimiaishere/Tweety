@@ -1,9 +1,11 @@
 @import "tailwindcss";
 
-body {
-  font-family: "Vazirmatn", system-ui, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@theme {
+  --color-brand-50: #eff6ff;
+  --color-brand-100: #dbeafe;
+  --color-brand-500: #3b82f6;
+  --color-brand-600: #2563eb;
+  --color-brand-700: #1d4ed8;
 }
 
 * {
@@ -11,20 +13,54 @@ body {
   scrollbar-color: #cbd5e1 transparent;
 }
 
-*::-webkit-scrollbar {
-  width: 6px;
+html,
+body,
+#root {
+  height: 100%;
 }
 
-*::-webkit-scrollbar-thumb {
-  background-color: #cbd5e1;
-  border-radius: 9999px;
+body {
+  font-family: "Vazirmatn", system-ui, sans-serif;
+  background: #fff;
+  overflow: hidden;
 }
 
-*::-webkit-scrollbar-track {
-  background: transparent;
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-::selection {
-  background-color: #bae6fd;
-  color: #0c4a6e;
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.25s ease-out;
+}
+
+.skeleton {
+  animation: pulse-soft 1.5s ease-in-out infinite;
+  background: linear-gradient(90deg, #f1f5f9 25%, #e2e8f0 50%, #f1f5f9 75%);
+  background-size: 200% 100%;
+}
+
+.mixed-text {
+  unicode-bidi: plaintext;
+  text-align: start;
+}
+
+.bidi-ltr {
+  unicode-bidi: isolate;
+  direction: ltr;
+  display: inline;
 }

@@ -11,18 +11,16 @@ import AuthLoader from "./components/AuthLoader";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-  <Provider store={store}>
-  <BrowserRouter>
-  <AuthLoader>
-    <App />
-  </AuthLoader>
+    <Provider store={store}>
+      <BrowserRouter>
+        <div className="h-full">
+          <AuthLoader>
+            <App />
+          </AuthLoader>
 
-  <ToastContainer
-    position="top-center"
-    autoClose={2500}
-    rtl
-  />
-</BrowserRouter>
-</Provider>
-</StrictMode>
+          <ToastContainer position="top-center" autoClose={2500} rtl />
+        </div>
+      </BrowserRouter>
+    </Provider>
+  </StrictMode>
 );

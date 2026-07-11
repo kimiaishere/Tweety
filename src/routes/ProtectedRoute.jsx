@@ -6,5 +6,5 @@ export default function ProtectedRoute({ children }) {
 
   if (!user) return <Navigate to="/login" replace />;
 
-  return children;
+  return <div className="h-full">{children}</div>;
 }

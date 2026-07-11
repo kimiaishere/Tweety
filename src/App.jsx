@@ -5,17 +5,19 @@ import ProtectedRoute from "./routes/ProtectedRoute";
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
+    <div className="h-full">
+      <Routes>
+        <Route path="/login" element={<Login />} />
 
-      <Route
-        path="/"
-        element={
-          <ProtectedRoute>
-            <Home />
-          </ProtectedRoute>
-        }
-      />
-    </Routes>
+        <Route
+          path="/"
+          element={
+            <ProtectedRoute>
+              <Home />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </div>
   );
 }

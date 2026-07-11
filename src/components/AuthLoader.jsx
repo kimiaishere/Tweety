@@ -13,5 +13,5 @@ export default function AuthLoader({ children }) {
     }
   }, [dispatch]);
 
-  return children;
+  return <div className="h-full">{children}</div>;
 }

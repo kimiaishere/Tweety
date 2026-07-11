@@ -4,31 +4,31 @@ import { loginSchema } from "../validation/loginSchema";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { login } from "../features/auth/authSlice";
 
+const DEMO_ACCOUNTS = [
+  { email: "admin@test.com", password: "123456", label: "مدیر" },
+  { email: "user@test.com", password: "123456", label: "کاربر" },
+];
+
 export default function Login() {
-
   const dispatch = useDispatch();
-const user = useSelector((state) => state.auth.user);
-
-console.log(user);
+  const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    setValue,
+    formState: { errors, isSubmitting },
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
-  const navigate = useNavigate();
+
   useEffect(() => {
     try {
       const storedUser = localStorage.getItem("user");
-  
       if (storedUser) {
-        const user = JSON.parse(storedUser);
         navigate("/", { replace: true });
       }
     } catch {
@@ -41,81 +41,101 @@ console.log(user);
       const res = await fetch(
         `http://localhost:3000/users?email=${data.email}&password=${data.password}`
       );
-  
       const users = await res.json();
-      console.log("Users:", users);
-  
+
       if (users.length === 0) {
         toast.error("ایمیل یا رمز عبور اشتباه است.");
         return;
       }
-  
+
       localStorage.setItem("user", JSON.stringify(users[0]));
       dispatch(login(users[0]));
-  
-      toast.success("ورود موفقیت‌آمیز بود.");
-  
+      toast.success(`خوش آمدید، ${users[0].name}! 👋`);
       navigate("/");
-    } catch (error) {
+    } catch {
       toast.error("خطا در برقراری ارتباط با سرور.");
-      console.error(error);
     }
   };
 
+  const fillDemo = (account) => {
+    setValue("email", account.email);
+    setValue("password", account.password);
+  };
+
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-
-      <form
-        onSubmit={handleSubmit(onSubmit)}
-        className="bg-white w-[400px] rounded-xl shadow-lg p-8 space-y-6"
-      >
-
-        <h1 className="text-2xl font-bold text-center">
-          ورود
-        </h1>
-
-        <div>
-
-          <input
-            type="email"
-            placeholder="ایمیل"
-            {...register("email")}
-            className="w-full border rounded-lg p-3 outline-none"
-          />
-
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.email.message}
-            </p>
-          )}
-
+    <div className="h-full overflow-y-auto bg-gradient-to-br from-blue-50 via-white to-violet-50 flex items-center justify-center p-4" dir="rtl">
+      <div className="w-full max-w-md">
+        {/* Logo */}
+        <div className="text-center mb-8 animate-fade-in">
+          <div className="text-5xl mb-3">🕊️</div>
+          <h1 className="text-3xl font-bold bg-gradient-to-l from-brand-600 to-violet-600 bg-clip-text text-transparent">
+            توییتی
+          </h1>
+          <p className="text-gray-500 mt-2 text-sm">به شبکه اجتماعی خود خوش آمدید</p>
         </div>
 
-        <div>
-
-          <input
-            type="password"
-            placeholder="رمز عبور"
-            {...register("password")}
-            className="w-full border rounded-lg p-3 outline-none"
-          />
-
-          {errors.password && (
-            <p className="text-red-500 text-sm mt-2">
-              {errors.password.message}
-            </p>
-          )}
-
-        </div>
-
-        <button
-          className="w-full bg-blue-500 text-white rounded-lg p-3 cursor-pointer"
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="bg-white rounded-2xl shadow-xl border border-gray-200/60 p-7 space-y-5 animate-slide-up"
         >
-          ورود
-        </button>
+          <h2 className="text-xl font-bold text-gray-800 text-center">ورود به حساب</h2>
 
-      </form>
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              ایمیل
+            </label>
+            <input
+              type="email"
+              placeholder="example@email.com"
+              {...register("email")}
+              className="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-xs mt-1.5">{errors.email.message}</p>
+            )}
+          </div>
 
+          <div>
+            <label className="block text-sm font-medium text-gray-700 mb-1.5">
+              رمز عبور
+            </label>
+            <input
+              type="password"
+              placeholder="••••••"
+              {...register("password")}
+              className="w-full border border-gray-200 rounded-xl p-3 outline-none focus:border-brand-500 focus:ring-2 focus:ring-blue-100 transition-all text-sm"
+            />
+            {errors.password && (
+              <p className="text-red-500 text-xs mt-1.5">{errors.password.message}</p>
+            )}
+          </div>
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-brand-500 hover:bg-brand-600 disabled:opacity-60 text-white font-bold rounded-full p-3.5 transition-all shadow-md shadow-blue-200/50 active:scale-[0.98]"
+          >
+            {isSubmitting ? "در حال ورود..." : "ورود"}
+          </button>
+        </form>
+
+        {/* Demo accounts */}
+        <div className="mt-5 bg-white/70 backdrop-blur rounded-2xl border border-gray-200/60 p-4 animate-fade-in">
+          <p className="text-xs text-gray-500 text-center mb-3">حساب‌های آزمایشی</p>
+          <div className="flex gap-2">
+            {DEMO_ACCOUNTS.map((acc) => (
+              <button
+                key={acc.email}
+                type="button"
+                onClick={() => fillDemo(acc)}
+                className="flex-1 text-xs py-2 px-3 rounded-xl border border-gray-200 hover:border-brand-300 hover:bg-brand-50 text-gray-600 hover:text-brand-600 transition-colors font-medium"
+              >
+                {acc.label}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
