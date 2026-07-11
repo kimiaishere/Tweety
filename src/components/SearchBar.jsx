@@ -53,8 +53,8 @@ export default function SearchBar({ onSearchResult }) {
   };
 
   return (
-    <div className="py-2 border-b border-b-gray-200" ref={ref}>
-      <div className="w-[500px] mx-auto">
+    <div className="py-2" ref={ref}>
+      <div className="w-[500px]">
         {/* بخش جستجو */}
         <div className="flex items-center relative">
           <input

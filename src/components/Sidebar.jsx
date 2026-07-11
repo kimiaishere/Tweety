@@ -3,10 +3,10 @@ import { SIDEBAR_ITEMS } from '../constants';
 
 function Sidebar({ onNewTweet }) {
   return (
-    <aside className="w-64 h-full bg-white border-l border-gray-200 flex flex-col shrink-0">
+    <aside className="w-[25%] h-full bg-white border-l border-gray-200 flex flex-col shrink-0">
       {/* هدر - ثابت در بالا */}
-      <div className="p-4 pb-[15px] border-b border-gray-200 shrink-0">
-        <h1 className="text-2xl pt-8 font-bold text-blue-500">🕊️ توییتر</h1>
+      <div className="p-[22px] border-b border-gray-200 shrink-0">
+        <h1 className="text-2xl font-bold text-blue-500">🕊️ توییتر</h1>
       </div>
       
       {/* ناوبری - فضای باقیمانده را پر می‌کند */}

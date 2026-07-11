@@ -113,7 +113,7 @@ export default function Home() {
 
   return (
     <div className="h-screen bg-gray-50" dir="rtl">
-      <div className="max-w-5xl mx-auto h-full bg-white border border-gray-300 shadow-xl rounded-2xl overflow-hidden flex">
+      <div className="max-w-5xl mx-auto h-full bg-white border border-gray-300 shadow-2xl rounded-2xl overflow-hidden flex">
         
         {/* سایدبار - با flex در کنار محتوا */}
         <Sidebar onNewTweet={() => setIsModalOpen(true)} />
@@ -121,10 +121,6 @@ export default function Home() {
         {/* بخش اصلی - فضای باقیمانده را پر می‌کند */}
         <div className="flex-1 flex flex-col min-w-0">
           <Header />
-
-          <div>
-            <SearchBar onSearchResult={setSearch} />
-          </div>
 
           <div className="flex-1 overflow-y-auto">
             <TweetList

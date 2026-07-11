@@ -30,29 +30,23 @@ function Tweet({
     );
 
   return (
-    <div className="p-4 hover:bg-gray-50 transition-colors duration-150">
+    <div className="px-6 pb-6 pt-4 hover:bg-gray-50 transition-colors duration-150">
 
       <div className="flex justify-between items-start">
 
         <div>
 
-          <h3 className="font-bold text-lg">
+        <div className="text-[14px]">
+        نویسنده:
+  <span
+    className="px-2 py-1">
+  
+    {author?.role}
+  </span>
+</div>
+          <h3 className="font-bold text-lg pt-3">
             {title}
           </h3>
-
-          <div className="flex gap-2 mt-1 items-center">
-
-            <span
-              className={`text-xs px-2 py-1 rounded-full ${
-                author?.role === "admin"
-                  ? "bg-red-100 text-red-600"
-                  : "bg-blue-100 text-blue-600"
-              }`}
-            >
-              {author?.role}
-            </span>
-
-          </div>
 
         </div>
 
@@ -61,45 +55,36 @@ function Tweet({
       <p className="mt-6 text-[15px] leading-7">
         {body}
       </p>
+      <div className="flex gap-20 items-center mt-10">
 
-      <div className="flex justify-between mt-10 max-w-sm">
+  <button>💬</button>
+  <button>🔄</button>
+  <button>🤍</button>
 
-        <button>
-          💬
-        </button>
+  {canManage && (
+    <>
+      <button onClick={() => onDelete(id)}>
+        🗑️
+      </button>
 
-        <button>
-          🔄
-        </button>
+      <button
+        onClick={() =>
+          onEdit({
+            id,
+            title,
+            body,
+            userId,
+          })
+        }
+      >
+        ✏️
+      </button>
+    </>
+  )}
 
-        <button>
-          🤍
-        </button>
 
-        {canManage && (
-          <>
-            <button
-              onClick={() => onDelete(id)}
-            >
-              🗑️
-            </button>
 
-            <button
-              onClick={() =>
-                onEdit({
-                  id,
-                  title,
-                  body,
-                  userId,
-                })
-              }
-            >
-              ✏️
-            </button>
-          </>
-        )}
-
-      </div>
+</div>
 
     </div>
   );

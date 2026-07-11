@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../features/auth/authSlice";
+import SearchBar from "./SearchBar";
 
 function Header({
   activeTab,
@@ -12,6 +13,7 @@ function Header({
 }) {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [search, setSearch] = useState("");
 
   const [showMenu, setShowMenu] = useState(false);
 
@@ -37,14 +39,15 @@ function Header({
   };
 
   return (
-    <header className="bg-white border-b border-gray-200 sticky top-0 z-20">
-      <div className="px-4 py-2 flex justify-between items-center">
-        <div />
+    <header className="flex justify-between pr-5 bg-white border-b border-gray-200 sticky top-2 pb-2 z-20">
 
-        <div className="flex items-center gap-2">
+        <div>
+            <SearchBar onSearchResult={setSearch} />
+        </div>
+        <div className="flex flex-row py-4 px-3 gap-4 justify-end">
           <button
             onClick={onToggleNotifications}
-            className="p-2 rounded-full"
+            className="flex rounded-full text-xl"
           >
             🔔
           </button>
@@ -52,13 +55,13 @@ function Header({
           <div className="relative">
             <button
               onClick={() => setShowMenu(!showMenu)}
-              className="flex items-center gap-2 cursor-pointer"
+              className="flex items-center cursor-pointer text-xl"
             >
               👤
             </button>
 
             {showMenu && (
-              <div className="absolute left-[-15px] mt-3 w-40 z-50 bg-white rounded-xl shadow-lg border border-gray-300 p-4 flex flex-col gap-2">
+              <div className="absolute left-[-8px] mt-3 w-40 z-50 bg-white rounded-xl shadow-xl border border-gray-300 p-4 flex flex-col gap-5">
 
                 <h3
                   dir="ltr"
@@ -77,7 +80,7 @@ function Header({
 
                 <button
                   onClick={handleLogout}
-                  className="mt-2 text-red-500 hover:text-red-700"
+                  className="mt-5 text-red-500 hover:text-red-700"
                 >
                   خروج از حساب
                 </button>
@@ -85,28 +88,8 @@ function Header({
               </div>
             )}
           </div>
-        </div>
-      </div>
-
-      <div className="flex border-b border-gray-200">
-        {TABS.map((tab) => (
-          <button
-            key={tab.value}
-            onClick={() => onTabChange(tab.value)}
-            className={`flex-1 py-3 mt-[-10px] text-center font-medium relative ${
-              activeTab === tab.value
-                ? "text-blue-600"
-                : "text-gray-500"
-            }`}
-          >
-            {tab.label}
-
-            {activeTab === tab.value && (
-              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-14 h-1 bg-blue-500 rounded-full" />
-            )}
-          </button>
-        ))}
-      </div>
+          </div>
+      
     </header>
   );
 }
