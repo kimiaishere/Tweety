@@ -226,11 +226,11 @@ export default function Home() {
         </div>
 
         {filtered.length > limit && (
-          <div className="flex items-center justify-between border-t border-gray-100 px-5 py-3 shrink-0 bg-white">
+          <div className="flex items-center justify-center border-t border-gray-100 px-5 gap-15 py-3 shrink-0 bg-white">
             <button
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
-              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="flex items-center px-4 py-2 text-sm font-medium rounded-full border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               ← قبلی
             </button>

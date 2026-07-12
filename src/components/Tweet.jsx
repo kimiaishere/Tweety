@@ -120,7 +120,7 @@ function Tweet({
           </MixedText>
 
           {/* Actions */}
-          <div className="flex items-center justify-end gap-3 mt-3 pt-1">
+          <div className="flex items-center gap-3 mt-3 pt-1">
             <TweetAction
               icon="💬"
               activeIcon="💬"

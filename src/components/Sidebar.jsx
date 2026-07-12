@@ -8,7 +8,7 @@ function Sidebar({ onNewTweet, user, bookmarksCount = 0 }) {
       <div className="px-5 py-5 border-b border-gray-100 shrink-0">
         <div className="flex items-center gap-2">
           <span className="text-2xl">🕊️</span>
-          <h1 className="text-xl font-bold bg-gradient-to-l from-brand-600 to-violet-600 bg-clip-text text-transparent">
+          <h1 className="text-xl font-bold bg-linear-to-l from-brand-600 to-violet-600 bg-clip-text text-transparent">
             توییتی
           </h1>
         </div>
