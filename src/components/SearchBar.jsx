@@ -59,7 +59,7 @@ export default function SearchBar({ onSearchResult }) {
   };
 
   return (
-    <div className="relative flex-1 max-w-3xl" ref={ref}>
+    <div className="relative flex-1 min-w-0 max-w-3xl" ref={ref}>
       <div className="relative">
         <input
           type="text"

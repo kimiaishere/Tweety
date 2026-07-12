@@ -10,6 +10,7 @@ import NotificationPanel from "../components/NotificationPanel";
 import LoadingSkeleton from "../components/LoadingSkeleton";
 import EmptyState from "../components/EmptyState";
 import ExplorePanel from "../components/ExplorePanel";
+import MobileBottomNav from "../components/MobileBottomNav";
 
 import {
   setPosts,
@@ -34,6 +35,7 @@ export default function Home() {
   const [editing, setEditing] = useState(null);
   const [form, setForm] = useState({ title: "", body: "" });
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showExplore, setShowExplore] = useState(false);
   const [bookmarks, setBookmarks] = useState(() => {
     try {
       return JSON.parse(localStorage.getItem("bookmarks") || "[]");
@@ -175,7 +177,7 @@ export default function Home() {
         bookmarksCount={bookmarks.length}
       />
 
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 pb-[72px] sm:pb-0">
         <Header
           onSearchResult={setSearch}
           activeTab={activeTab}
@@ -226,7 +228,7 @@ export default function Home() {
         </div>
 
         {filtered.length > limit && (
-          <div className="flex items-center justify-center border-t border-gray-100 px-5 gap-15 py-3 shrink-0 bg-white">
+          <div className="flex items-center justify-center border-t border-gray-100 px-3 sm:px-5 gap-3 sm:gap-6 py-3 shrink-0 bg-white">
             <button
               disabled={page === 1}
               onClick={() => setPage(page - 1)}
@@ -235,7 +237,7 @@ export default function Home() {
               ← قبلی
             </button>
 
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1 sm:gap-1.5">
               {Array.from({ length: totalPages }, (_, i) => i + 1)
                 .filter(
                   (p) =>
@@ -275,6 +277,14 @@ export default function Home() {
         bookmarksCount={bookmarks.length}
         onTrendClick={(term) => setSearch(term)}
         onCategoryClick={(cat) => setSearch(cat)}
+        mobileOpen={showExplore}
+        onMobileClose={() => setShowExplore(false)}
+      />
+
+      <MobileBottomNav
+        bookmarksCount={bookmarks.length}
+        onNewTweet={openNewTweetModal}
+        onExplore={() => setShowExplore(true)}
       />
 
       {isModalOpen && (
@@ -287,17 +297,6 @@ export default function Home() {
           editingTweet={editing}
         />
       )}
-
-      {/* Mobile FAB */}
-      <button
-        onClick={openNewTweetModal}
-        className="sm:hidden fixed bottom-6 left-6 w-14 h-14 bg-brand-500 hover:bg-brand-600 text-white rounded-full shadow-xl shadow-blue-300/50 flex items-center justify-center z-30 active:scale-95 transition-all"
-        title="توییت جدید"
-      >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
-        </svg>
-      </button>
     </div>
   );
 }

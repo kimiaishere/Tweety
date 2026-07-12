@@ -45,13 +45,23 @@ function Header({
 
   return (
     <header className="sticky top-0 z-20 bg-white/90 backdrop-blur-md border-b border-gray-100">
+      {/* Mobile logo bar */}
+      <div className="sm:hidden flex items-center justify-between px-4 py-2.5 border-b border-gray-50">
+        <div className="flex items-center gap-2">
+          <span className="text-xl">🕊️</span>
+          <h1 className="text-lg font-bold bg-linear-to-l from-brand-600 to-violet-600 bg-clip-text text-transparent">
+            توییتی
+          </h1>
+        </div>
+      </div>
+
       {/* Tabs */}
       <div className="flex border-b border-gray-100">
         {TABS.map((tab) => (
           <button
             key={tab.value}
             onClick={() => onTabChange(tab.value)}
-            className={`flex-1 py-4 text-sm font-semibold transition-colors relative hover:bg-gray-50 ${
+            className={`flex-1 py-3 sm:py-4 text-xs sm:text-sm font-semibold transition-colors relative hover:bg-gray-50 ${
               activeTab === tab.value
                 ? "text-gray-900"
                 : "text-gray-500"
@@ -66,10 +76,10 @@ function Header({
       </div>
 
       {/* Search + actions */}
-      <div className="flex items-center justify-between gap-3 px-4 py-3">
+      <div className="flex items-center justify-between gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3">
         <SearchBar onSearchResult={onSearchResult} />
 
-        <div className="flex items-center gap-2 shrink-0">
+        <div className="flex items-center gap-1 sm:gap-2 shrink-0">
           <button
             onClick={onToggleNotifications}
             className={`relative w-10 h-10 flex items-center justify-center rounded-full transition-colors ${
@@ -96,7 +106,7 @@ function Header({
             </button>
 
             {showMenu && (
-              <div className="absolute left-0 mt-2 w-56 z-50 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden animate-slide-up">
+              <div className="absolute left-0 sm:left-auto sm:right-0 mt-2 w-56 max-w-[calc(100vw-2rem)] z-50 bg-white rounded-2xl shadow-xl border border-gray-100 overflow-hidden animate-slide-up">
                 <div className="p-4 bg-gradient-to-l from-blue-50 to-violet-50 border-b border-gray-100">
                   <div className="flex items-center gap-3">
                     <UserAvatar user={user} size="md" />
