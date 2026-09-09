@@ -1,18 +1,19 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { loginSchema } from "../validation/loginSchema";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { login } from "../features/auth/authSlice";
+import { useDispatch } from "react-redux";
+import { loginSchema } from "./loginSchema";
+import { login } from "./authSlice";
+import { findUser } from "./api";
 
 const DEMO_ACCOUNTS = [
   { email: "admin@test.com", password: "123456", label: "مدیر" },
   { email: "user@test.com", password: "123456", label: "کاربر" },
 ];
 
-export default function Login() {
+export default function LoginPage() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -38,10 +39,7 @@ export default function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const res = await fetch(
-        `http://localhost:3000/users?email=${data.email}&password=${data.password}`
-      );
-      const users = await res.json();
+      const users = await findUser(data.email, data.password);
 
       if (users.length === 0) {
         toast.error("ایمیل یا رمز عبور اشتباه است.");
@@ -65,7 +63,6 @@ export default function Login() {
   return (
     <div className="h-full overflow-y-auto bg-gradient-to-br from-blue-50 via-white to-violet-50 flex items-center justify-center p-4" dir="rtl">
       <div className="w-full max-w-md">
-        {/* Logo */}
         <div className="text-center mb-8 animate-fade-in">
           <div className="text-5xl mb-3">🕊️</div>
           <h1 className="text-3xl font-bold bg-gradient-to-l from-brand-600 to-violet-600 bg-clip-text text-transparent">
@@ -119,7 +116,6 @@ export default function Login() {
           </button>
         </form>
 
-        {/* Demo accounts */}
         <div className="mt-5 bg-white/70 backdrop-blur rounded-2xl border border-gray-200/60 p-4 animate-fade-in">
           <p className="text-xs text-gray-500 text-center mb-3">حساب‌های آزمایشی</p>
           <div className="flex gap-2">

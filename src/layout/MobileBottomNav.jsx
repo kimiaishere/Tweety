@@ -1,5 +1,4 @@
-import React from "react";
-import { SIDEBAR_ITEMS } from "../constants";
+import { SIDEBAR_ITEMS } from "./constants";
 
 function MobileBottomNav({ onNewTweet, onExplore, bookmarksCount = 0 }) {
   const leftItems = [

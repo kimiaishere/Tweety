@@ -1,6 +1,5 @@
-import React from "react";
-import { SIDEBAR_ITEMS } from "../constants";
-import UserAvatar from "./UserAvatar";
+import { SIDEBAR_ITEMS } from "./constants";
+import UserAvatar from "../shared/components/UserAvatar";
 
 function Sidebar({ onNewTweet, user, bookmarksCount = 0 }) {
   return (

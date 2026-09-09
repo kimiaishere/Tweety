@@ -1,4 +1,3 @@
-import React from "react";
 import Tweet from "./Tweet";
 
 function TweetList({ tweets, onDelete, onEdit, bookmarks = [], onToggleBookmark }) {

@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
-import { useDebounce } from "../Hooks/useDebounce";
+import { useEffect, useRef, useState } from "react";
+import { searchPosts } from "../api";
+import { useDebounce } from "../hooks/useDebounce";
 import MixedText from "./MixedText";
 
 export default function SearchBar({ onSearchResult }) {
@@ -9,6 +10,7 @@ export default function SearchBar({ onSearchResult }) {
   const ref = useRef(null);
 
   const debouncedTerm = useDebounce(term, 300);
+  const showSuggestions = show && debouncedTerm.length >= 2;
 
   useEffect(() => {
     const clickOutside = (e) => {
@@ -22,27 +24,26 @@ export default function SearchBar({ onSearchResult }) {
 
   useEffect(() => {
     if (debouncedTerm.length < 2) {
-      setSuggestions([]);
-      setShow(false);
       onSearchResult("");
       return;
     }
 
-    const search = async () => {
-      try {
-        const res = await fetch(
-          `http://localhost:3000/posts?title_like=${debouncedTerm}`
-        );
-        const data = await res.json();
+    let cancelled = false;
+
+    searchPosts(debouncedTerm)
+      .then((data) => {
+        if (cancelled) return;
         const titles = [...new Set(data.map((item) => item.title))].slice(0, 8);
         setSuggestions(titles);
         setShow(true);
-      } catch {
-        setSuggestions([]);
-      }
-    };
+      })
+      .catch(() => {
+        if (!cancelled) setSuggestions([]);
+      });
 
-    search();
+    return () => {
+      cancelled = true;
+    };
   }, [debouncedTerm, onSearchResult]);
 
   const handleSelect = (title) => {
@@ -88,7 +89,7 @@ export default function SearchBar({ onSearchResult }) {
         )}
       </div>
 
-      {show && (
+      {showSuggestions && (
         <div className="absolute mt-1.5 w-full bg-white rounded-xl shadow-xl border border-gray-100 overflow-hidden z-30 animate-slide-up">
           {suggestions.length === 0 ? (
             <div className="px-4 py-3 text-gray-400 text-sm text-center">

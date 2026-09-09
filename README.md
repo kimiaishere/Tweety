@@ -1,20 +1,91 @@
-<<<<<<< HEAD
-# React + Vite
+# توییتی 🕊️
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+شبکه اجتماعی ساده و فارسی ساخته‌شده با **React 19**، **Vite**، **Tailwind CSS 4** و **Redux Toolkit**.
 
-Currently, two official plugins are available:
+## امکانات
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- ورود با حساب‌های آزمایشی و احراز هویت مبتنی بر `localStorage`
+- نمایش، ایجاد، ویرایش و حذف توییت
+- جستجوی زنده با دیبونس و پیشنهادهای خودکار
+- نشان‌گذاری توییت‌ها
+- پنل کاوش، ترندها و پیشنهاد دنبال کردن
+- طراحی کاملاً واکنش‌گرا (RTL / فارسی)
 
-## React Compiler
+## راه‌اندازی
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+پیش‌نیاز: **Node.js 20+**
 
-## Expanding the ESLint configuration
+```bash
+npm install
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-=======
-# Tweety
->>>>>>> 95f84b44d0448c61785ac317b4e72429908e6d48
+در یک ترمینال، سرور داده (json-server) را روی پورت ۳۰۰۰ اجرا کنید:
+
+```bash
+npm run server
+```
+
+در ترمینال دیگر، برنامه را اجرا کنید:
+
+```bash
+npm run dev
+```
+
+## اسکریپت‌ها
+
+| دستور | توضیح |
+| --- | --- |
+| `npm run dev` | اجرای برنامه در حالت توسعه |
+| `npm run build` | ساخت نسخه تولید |
+| `npm run preview` | پیش‌نمایش نسخه تولید |
+| `npm run lint` | بررسی کد با ESLint |
+| `npm run server` | اجرای json-server با داده‌های `db.json` |
+
+## حساب‌های آزمایشی
+
+| ایمیل | رمز عبور | نقش |
+| --- | --- | --- |
+| `admin@test.com` | `123456` | مدیر |
+| `user@test.com` | `123456` | کاربر |
+
+## پیکربندی
+
+آدرس سرور API از متغیر محیطی `VITE_API_URL` خوانده می‌شود و به‌طور پیش‌فرض روی `http://localhost:3000` است. برای تغییر آن، فایل `.env` بسازید (نمونه: `.env.example`).
+
+## ساختار پروژه
+
+پروژه بر پایه **Feature-Based Architecture** سازمان‌دهی شده است؛ هر فیچر همه اجزای خودش را شامل می‌شود:
+
+```
+src/
+├── app/                    تنظیمات سطح برنامه (store، HTTP client)
+├── config.js               پیکربندی (آدرس API)
+├── features/
+│   ├── auth/               فیچر احراز هویت
+│   │   ├── api.js          درخواست‌های سرور
+│   │   ├── authSlice.js    مدیریت state
+│   │   ├── loginSchema.js  اعتبارسنجی فرم ورود
+│   │   ├── AuthLoader.jsx  بارگذاری کاربر ذخیره‌شده
+│   │   ├── ProtectedRoute.jsx  محافظت از مسیرها
+│   │   └── LoginPage.jsx   صفحه ورود
+│   ├── posts/              فیچر توییت‌ها
+│   │   ├── api.js          عملیات CRUD و جستجو
+│   │   ├── postsSlice.js   مدیریت state
+│   │   ├── utils.js        توابع کمکی فیچر
+│   │   ├── hooks/          هوک‌های اختصاصی (useDebounce)
+│   │   ├── components/     کامپوننت‌های فیچر (Tweet, TweetList, TweetModal, SearchBar, ...)
+│   │   ├── posts.css       استایل‌های فیچر
+│   │   └── HomePage.jsx    صفحه اصلی فید
+│   └── users/              فیچر کاربران
+│       ├── api.js
+│       └── usersSlice.js
+├── layout/                 پوسته برنامه (سایدبار، هدر، ناوبری موبایل، پنل کاوش)
+│   ├── constants.js        ثابت‌های UI پوسته
+│   └── layout.css          استایل‌های پوسته
+└── shared/                 اجزای مشترک بین فیچرها
+    ├── components/         کامپوننت‌های عمومی (UserAvatar)
+    ├── utils.js            توابع مشترک
+    └── shared.css          استایل‌های مشترک (انیمیشن‌ها)
+```
+
+استایل‌ها نیز به همین الگو تقسیم شده‌اند: `index.css` فقط Tailwind، تم و استایل‌های پایه را نگه می‌دارد و استایل هر فیچر در کنار همان فیچر قرار دارد.

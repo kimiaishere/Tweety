@@ -1,5 +1,3 @@
-import React from "react";
-
 function NotificationPanel({ onClose, postsCount = 0 }) {
   const notifications = [
     {

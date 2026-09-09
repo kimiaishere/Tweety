@@ -1,4 +1,4 @@
-import { getInitials, getAvatarColor } from "../utils/helpers";
+import { getInitials, getAvatarColor } from "../utils";
 
 export default function UserAvatar({ user, size = "md" }) {
   if (!user) return null;

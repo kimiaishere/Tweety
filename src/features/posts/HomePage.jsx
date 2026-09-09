@@ -2,15 +2,15 @@ import React, { useEffect, useMemo, useState, useCallback } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toast } from "react-toastify";
 
-import Sidebar from "../components/Sidebar";
-import Header from "../components/Header";
-import TweetList from "../components/TweetList";
-import TweetModal from "../components/TweetModal";
-import NotificationPanel from "../components/NotificationPanel";
-import LoadingSkeleton from "../components/LoadingSkeleton";
-import EmptyState from "../components/EmptyState";
-import ExplorePanel from "../components/ExplorePanel";
-import MobileBottomNav from "../components/MobileBottomNav";
+import Sidebar from "../../layout/Sidebar";
+import Header from "../../layout/Header";
+import TweetList from "./components/TweetList";
+import TweetModal from "./components/TweetModal";
+import NotificationPanel from "../../layout/NotificationPanel";
+import LoadingSkeleton from "./components/LoadingSkeleton";
+import EmptyState from "./components/EmptyState";
+import ExplorePanel from "../../layout/ExplorePanel";
+import MobileBottomNav from "../../layout/MobileBottomNav";
 
 import {
   setPosts,
@@ -18,10 +18,19 @@ import {
   deletePost,
   updatePost,
   setLoading,
-} from "../features/posts/postsSlice";
-import { setUsers } from "../features/users/usersSlice";
+} from "./postsSlice";
+import { setUsers } from "../../features/users/usersSlice";
+import {
+  getPosts,
+  createPost,
+  updatePost as updatePostRequest,
+  deletePost as deletePostRequest,
+} from "./api";
+import { getUsers } from "../../features/users/api";
 
-export default function Home() {
+const LIMIT = 8;
+
+export default function HomePage() {
   const dispatch = useDispatch();
 
   const posts = useSelector((state) => state.posts.posts);
@@ -44,24 +53,28 @@ export default function Home() {
     }
   });
 
-  const limit = 8;
-
   useEffect(() => {
+    let cancelled = false;
+
     dispatch(setLoading(true));
 
-    Promise.all([
-      fetch("http://localhost:3000/posts").then((r) => r.json()),
-      fetch("http://localhost:3000/users").then((r) => r.json()),
-    ]).then(([postsData, usersData]) => {
-      dispatch(setPosts(postsData));
-      dispatch(setUsers(usersData));
-      dispatch(setLoading(false));
-    });
-  }, [dispatch]);
+    Promise.all([getPosts(), getUsers()])
+      .then(([postsData, usersData]) => {
+        if (cancelled) return;
+        dispatch(setPosts(postsData));
+        dispatch(setUsers(usersData));
+      })
+      .catch(() => {
+        if (!cancelled) toast.error("خطا در دریافت داده‌ها.");
+      })
+      .finally(() => {
+        if (!cancelled) dispatch(setLoading(false));
+      });
 
-  useEffect(() => {
-    setPage(1);
-  }, [search, activeTab]);
+    return () => {
+      cancelled = true;
+    };
+  }, [dispatch]);
 
   const filtered = useMemo(() => {
     let result = posts;
@@ -79,12 +92,23 @@ export default function Home() {
     return [...result].reverse();
   }, [posts, search, activeTab, user?.id]);
 
-  const totalPages = Math.max(1, Math.ceil(filtered.length / limit));
+  const totalPages = Math.max(1, Math.ceil(filtered.length / LIMIT));
+  const currentPage = Math.min(page, totalPages);
 
   const currentPosts = useMemo(() => {
-    const start = (page - 1) * limit;
-    return filtered.slice(start, start + limit);
-  }, [filtered, page]);
+    const start = (currentPage - 1) * LIMIT;
+    return filtered.slice(start, start + LIMIT);
+  }, [filtered, currentPage]);
+
+  const handleSearch = useCallback((value) => {
+    setSearch(value);
+    setPage(1);
+  }, []);
+
+  const handleTabChange = useCallback((value) => {
+    setActiveTab(value);
+    setPage(1);
+  }, []);
 
   const openNewTweetModal = useCallback(() => {
     setEditing(null);
@@ -108,44 +132,34 @@ export default function Home() {
     e.preventDefault();
     if (!form.body.trim()) return;
 
+    const payload = { title: form.title, body: form.body };
+
     if (editing) {
-      fetch(`http://localhost:3000/posts/${editing.id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ title: form.title, body: form.body }),
-      })
-        .then((r) => r.json())
+      updatePostRequest(editing.id, payload)
         .then((updated) => {
           dispatch(updatePost(updated));
           toast.success("توییت با موفقیت ویرایش شد.");
           closeModal();
-        });
+        })
+        .catch(() => toast.error("خطا در ویرایش توییت."));
     } else {
-      fetch("http://localhost:3000/posts", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          title: form.title,
-          body: form.body,
-          userId: user.id,
-        }),
-      })
-        .then((res) => res.json())
+      createPost({ ...payload, userId: user.id })
         .then((data) => {
           dispatch(addPost(data));
           toast.success("توییت شما منتشر شد! 🎉");
           closeModal();
-        });
+        })
+        .catch(() => toast.error("خطا در انتشار توییت."));
     }
   };
 
   const deleteTweet = (id) => {
-    fetch(`http://localhost:3000/posts/${id}`, { method: "DELETE" }).then(
-      () => {
+    deletePostRequest(id)
+      .then(() => {
         dispatch(deletePost(id));
         toast.info("توییت حذف شد.");
-      }
-    );
+      })
+      .catch(() => toast.error("خطا در حذف توییت."));
   };
 
   const toggleBookmark = (id) => {
@@ -179,9 +193,9 @@ export default function Home() {
 
       <main className="flex-1 flex flex-col min-w-0 pb-[72px] sm:pb-0">
         <Header
-          onSearchResult={setSearch}
+          onSearchResult={handleSearch}
           activeTab={activeTab}
-          onTabChange={setActiveTab}
+          onTabChange={handleTabChange}
           onToggleNotifications={() => setShowNotifications((v) => !v)}
           showNotifications={showNotifications}
         />
@@ -227,11 +241,11 @@ export default function Home() {
           )}
         </div>
 
-        {filtered.length > limit && (
+        {filtered.length > LIMIT && (
           <div className="flex items-center justify-center border-t border-gray-100 px-3 sm:px-5 gap-3 sm:gap-6 py-3 shrink-0 bg-white">
             <button
-              disabled={page === 1}
-              onClick={() => setPage(page - 1)}
+              disabled={currentPage === 1}
+              onClick={() => setPage(currentPage - 1)}
               className="flex items-center px-4 py-2 text-sm font-medium rounded-full border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               ← قبلی
@@ -241,7 +255,9 @@ export default function Home() {
               {Array.from({ length: totalPages }, (_, i) => i + 1)
                 .filter(
                   (p) =>
-                    p === 1 || p === totalPages || Math.abs(p - page) <= 1
+                    p === 1 ||
+                    p === totalPages ||
+                    Math.abs(p - currentPage) <= 1
                 )
                 .map((p, idx, arr) => (
                   <React.Fragment key={p}>
@@ -251,7 +267,7 @@ export default function Home() {
                     <button
                       onClick={() => setPage(p)}
                       className={`w-8 h-8 text-sm rounded-full transition-colors ${
-                        page === p
+                        currentPage === p
                           ? "bg-brand-500 text-white font-bold"
                           : "hover:bg-gray-100 text-gray-600"
                       }`}
@@ -263,8 +279,8 @@ export default function Home() {
             </div>
 
             <button
-              disabled={page === totalPages}
-              onClick={() => setPage(page + 1)}
+              disabled={currentPage === totalPages}
+              onClick={() => setPage(currentPage + 1)}
               className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium rounded-full border border-gray-200 hover:bg-gray-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
             >
               بعدی →

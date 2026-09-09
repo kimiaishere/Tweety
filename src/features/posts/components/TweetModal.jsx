@@ -1,5 +1,3 @@
-import React from "react";
-
 function TweetModal({ open, form, setForm, onSubmit, onClose, editingTweet }) {
   if (!open) return null;
 
@@ -50,7 +48,6 @@ function TweetModal({ open, form, setForm, onSubmit, onClose, editingTweet }) {
               className="w-full p-3 border border-gray-200 rounded-xl resize-none focus:outline-none focus:border-brand-500 focus:ring-2 focus:ring-blue-100 transition-all text-[15px] leading-relaxed"
             />
 
-            {/* Character counter ring */}
             <div className="absolute bottom-3 left-3 flex items-center gap-2">
               <div
                 className={`text-xs font-medium ${

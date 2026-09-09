@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import { toast } from "react-toastify";
-import UserAvatar from "./UserAvatar";
-import { TRENDING_TOPICS, EXPLORE_CATEGORIES } from "../constants";
+import UserAvatar from "../shared/components/UserAvatar";
+import { TRENDING_TOPICS, EXPLORE_CATEGORIES } from "./constants";
 
 function PanelCard({ title, action, children, className = "" }) {
   return (
@@ -250,7 +250,6 @@ export default function ExplorePanel({
 
   return (
     <>
-      {/* Mobile / tablet drawer */}
       {mobileOpen && (
         <div className="lg:hidden fixed inset-0 z-50">
           <button
@@ -273,7 +272,6 @@ export default function ExplorePanel({
         </div>
       )}
 
-      {/* Desktop collapsible sidebar */}
       <div className="hidden lg:flex shrink-0 relative">
         <button
           type="button"

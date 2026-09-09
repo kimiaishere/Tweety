@@ -1,11 +1,11 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useSelector, useDispatch } from "react-redux";
 import { logout } from "../features/auth/authSlice";
-import SearchBar from "./SearchBar";
-import UserAvatar from "./UserAvatar";
-import { TABS } from "../constants";
+import SearchBar from "../features/posts/components/SearchBar";
+import UserAvatar from "../shared/components/UserAvatar";
+import { TABS } from "./constants";
 
 function Header({
   onSearchResult,
@@ -45,7 +45,6 @@ function Header({
 
   return (
     <header className="sticky top-0 z-20 bg-white/90 backdrop-blur-md border-b border-gray-100">
-      {/* Mobile logo bar */}
       <div className="sm:hidden flex items-center justify-between px-4 py-2.5 border-b border-gray-50">
         <div className="flex items-center gap-2">
           <span className="text-xl">🕊️</span>
@@ -55,7 +54,6 @@ function Header({
         </div>
       </div>
 
-      {/* Tabs */}
       <div className="flex border-b border-gray-100">
         {TABS.map((tab) => (
           <button
@@ -75,7 +73,6 @@ function Header({
         ))}
       </div>
 
-      {/* Search + actions */}
       <div className="flex items-center justify-between gap-2 sm:gap-3 px-3 sm:px-4 py-2.5 sm:py-3">
         <SearchBar onSearchResult={onSearchResult} />
 

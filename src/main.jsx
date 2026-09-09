@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from "react-toastify";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
-import AuthLoader from "./components/AuthLoader";
+import AuthLoader from "./features/auth/AuthLoader";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

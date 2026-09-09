@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useSelector } from "react-redux";
-import UserAvatar from "./UserAvatar";
-import { getRelativeTime } from "../utils/helpers";
+import UserAvatar from "../../../shared/components/UserAvatar";
+import { getRelativeTime } from "../utils";
 import MixedText from "./MixedText";
 
 function TweetAction({ icon, activeIcon, label, count, active, onClick, activeColor = "text-red-500" }) {
@@ -62,7 +62,6 @@ function Tweet({
         <UserAvatar user={author} size="md" />
 
         <div className="flex-1 min-w-0">
-          {/* Header row */}
           <div className="flex items-start justify-between gap-2">
             <div className="flex items-center gap-1.5 flex-wrap min-w-0">
               <span className="font-bold text-gray-900 text-sm" dir="auto">
@@ -103,7 +102,6 @@ function Tweet({
             )}
           </div>
 
-          {/* Content */}
           {title && (
             <MixedText
               as="h3"
@@ -119,7 +117,6 @@ function Tweet({
             {body}
           </MixedText>
 
-          {/* Actions */}
           <div className="flex items-center gap-3 mt-3 pt-1">
             <TweetAction
               icon="💬"
@@ -155,7 +152,6 @@ function Tweet({
         </div>
       </div>
 
-      {/* Delete confirmation */}
       {showConfirmDelete && (
         <div className="mt-3 mr-13 p-3 bg-red-50 border border-red-100 rounded-xl flex items-center justify-between gap-3 animate-slide-up">
           <p className="text-sm text-red-700">آیا از حذف این توییت مطمئنید؟</p>
